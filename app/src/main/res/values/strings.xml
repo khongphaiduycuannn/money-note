@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">MoneyNote</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="input">Input</string>
+    <string name="calendar">Calendar</string>
+    <string name="report">Report</string>
+    <string name="setting">Setting</string>
+    <string name="expense">Expense</string>
+    <string name="income">Income</string>
+    <string name="date">Date</string>
+    <string name="note">Note</string>
+    <string name="not_entered">Not entered</string>
+    <string name="_0_00">0.00</string>
+    <string name="category">Category</string>
+    <string name="submit">Submit</string>
+    <string name="edit">Edit</string>
+    <string name="dollar">$</string>
 </resources>

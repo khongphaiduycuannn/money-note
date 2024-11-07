@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/btnCategory"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_60sdp"
+    android:layout_margin="@dimen/_3sdp"
+    android:background="@drawable/bg_item_category_add_note"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/_4sdp"
+    tools:ignore="UseCompoundDrawables">
+
+    <ImageView
+        android:id="@+id/ivCategoryIcon"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_weight="1"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_hehe" />
+
+    <TextView
+        android:id="@+id/tvCategoryName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_minus2sdp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/defaultTextColor"
+        android:textSize="@dimen/_12sdp"
+        tools:text="Food" />
+</LinearLayout>

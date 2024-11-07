@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_60sdp"
+    android:layout_margin="@dimen/_3sdp"
+    android:background="@drawable/bg_item_category_add_note"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/_4sdp"
+    tools:ignore="UseCompoundDrawables">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_minus2sdp"
+        android:gravity="center"
+        android:text="@string/edit"
+        android:textColor="@color/defaultTextColor"
+        android:textSize="@dimen/_13sdp" />
+</LinearLayout>
