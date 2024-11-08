@@ -6,6 +6,7 @@
 
     <color name="primaryColor">#009ae7</color>
     <color name="secondaryColor">#ebf4ff</color>
+    <color name="errorColor">#f0564d</color>
     <color name="defaultIconColor">#aaaaaa</color>
     <color name="highlightIconColor">#009ae7</color>
     <color name="defaultTextColor">#525252</color>
@@ -17,4 +18,5 @@
     <color name="outlineColor">#e4e4e4</color>
 
     <color name="rippleColor">#dedede</color>
+    <color name="calendarHeaderColor">#efefef</color>
 </resources>

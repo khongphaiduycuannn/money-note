@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llDateItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_item_calendar_date_in_month"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:gravity="center_vertical"
+        android:textColor="@color/defaultTextColor"
+        android:textSize="@dimen/_11sdp"
+        tools:text="1" />
+
+    <TextView
+        android:id="@+id/tvIncome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:layout_marginEnd="@dimen/_1sdp"
+        android:gravity="end|center_vertical"
+        android:maxLines="1"
+        android:textColor="@color/primaryColor"
+        android:textSize="@dimen/_10sdp"
+        tools:text="0.52" />
+
+    <TextView
+        android:id="@+id/tvExpense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:layout_marginEnd="@dimen/_1sdp"
+        android:layout_marginBottom="@dimen/_1sdp"
+        android:gravity="end|center_vertical"
+        android:maxLines="1"
+        android:textColor="@color/errorColor"
+        android:textSize="@dimen/_10sdp"
+        tools:text="225.55" />
+</LinearLayout>
