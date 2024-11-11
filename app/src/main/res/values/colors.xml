@@ -2,4 +2,21 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="primaryColor">#009ae7</color>
+    <color name="secondaryColor">#ebf4ff</color>
+    <color name="errorColor">#f0564d</color>
+    <color name="defaultIconColor">#aaaaaa</color>
+    <color name="highlightIconColor">#009ae7</color>
+    <color name="defaultTextColor">#525252</color>
+    <color name="disableTextColor">#aaaaaa</color>
+    <color name="selectedTextBackgroundColor">#88009ae7</color>
+    <color name="highlightTextColor">#ffffff</color>
+    <color name="backgroundColor">#ffffff</color>
+    <color name="highlightBackgroundColor">#f5f5f5</color>
+    <color name="outlineColor">#efefef</color>
+
+    <color name="rippleColor">#dedede</color>
+    <color name="calendarHeaderColor">#efefef</color>
 </resources>

@@ -1,9 +1,23 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.MoneyNote" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorAccent">@color/primaryColor</item>
+        <item name="colorControlActivated">@color/primaryColor</item>
+        <item name="android:textColorPrimary">@color/defaultTextColor</item>
+        <item name="android:textColorSecondary">@color/defaultIconColor</item>
     </style>
 
     <style name="Theme.MoneyNote" parent="Base.Theme.MoneyNote" />
+
+    <style name="DatePickerDialogTheme" parent="Theme.MaterialComponents.Light.Dialog">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorAccent">@color/primaryColor</item>
+        <item name="android:textColorPrimary">@color/defaultTextColor</item>
+        <item name="android:textColorSecondary">@color/defaultIconColor</item>
+        <item name="android:buttonBarButtonStyle">@style/DatePickerTheme.ButtonBarStyle</item>
+    </style>
+
+    <style name="DatePickerTheme.ButtonBarStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/primaryColor</item>
+    </style>
 </resources>

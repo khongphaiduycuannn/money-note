@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tvHeader"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:background="@drawable/bg_item_calendar_header"
+    android:gravity="center"
+    android:paddingVertical="@dimen/_2sdp"
+    android:textColor="@color/defaultTextColor"
+    android:textSize="@dimen/_10sdp"
+    android:textStyle="bold"
+    tools:text="Mon" />
