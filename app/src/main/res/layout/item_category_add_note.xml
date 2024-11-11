@@ -28,9 +28,11 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_2sdp"
         android:layout_marginTop="@dimen/_minus2sdp"
-        android:ellipsize="end"
+        android:ellipsize="marquee"
         android:gravity="center"
-        android:maxLines="1"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:scrollHorizontally="true"
         android:textColor="@color/defaultTextColor"
         android:textSize="@dimen/_12sdp"
         tools:text="Food" />
