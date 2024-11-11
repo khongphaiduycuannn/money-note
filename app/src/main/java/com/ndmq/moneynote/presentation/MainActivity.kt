@@ -3,6 +3,7 @@ package com.ndmq.moneynote.presentation
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
+import androidx.navigation.findNavController
 import com.ndmq.moneynote.R
 import com.ndmq.moneynote.base.BaseActivity
 import com.ndmq.moneynote.databinding.ActivityMainBinding
@@ -20,6 +21,7 @@ class MainActivity : BaseActivity() {
         setContentView(binding.root)
 
         initView()
+        handleEvent()
         observeData()
     }
 
@@ -27,12 +29,22 @@ class MainActivity : BaseActivity() {
         initStatusBarColor()
     }
 
-    private fun initStatusBarColor() {
-        window.statusBarColor = getColorFromResource(R.color.primaryColor)
+    private fun handleEvent() {
+        binding.btnInput.setOnClickListener {
+            navigateTo(Screen.ADD_NOTE, R.id.addNoteFragment)
+        }
+
+        binding.btnCalendar.setOnClickListener {
+            navigateTo(Screen.CALENDAR, R.id.calendarFragment)
+        }
     }
 
     private fun observeData() {
         observeCurrentScreen()
+    }
+
+    private fun initStatusBarColor() {
+        window.statusBarColor = getColorFromResource(R.color.primaryColor)
     }
 
     private fun observeCurrentScreen() {
@@ -95,6 +107,15 @@ class MainActivity : BaseActivity() {
             tvCalendar.visibility = View.GONE
             tvReport.visibility = View.GONE
             tvSetting.visibility = View.GONE
+        }
+    }
+
+    private fun navigateTo(desScreen: Screen, id: Int) {
+        try {
+            if (desScreen != viewModel.currentScreen.value) {
+                findNavController(binding.navHostFragment.id).navigate(id)
+            }
+        } catch (_: Exception) {
         }
     }
 }

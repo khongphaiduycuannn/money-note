@@ -7,8 +7,8 @@
     android:layout_weight="1"
     android:background="@drawable/bg_item_calendar_header"
     android:gravity="center"
-    android:paddingVertical="@dimen/_1sdp"
+    android:paddingVertical="@dimen/_2sdp"
     android:textColor="@color/defaultTextColor"
-    android:textSize="@dimen/_11sdp"
+    android:textSize="@dimen/_10sdp"
     android:textStyle="bold"
     tools:text="Mon" />

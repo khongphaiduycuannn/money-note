@@ -35,15 +35,14 @@ class AddNoteViewModel : ViewModel() {
 
     fun saveNote(content: String?, amount: String?) {
         val createdDate = selectedDate.value ?: Date()
-        val categoryId = (selectedCategory.value ?: defaultExpenseCategory).id
-        val categoryType = categoryType.value ?: 1
+        val category = selectedCategory.value ?: defaultExpenseCategory
 
         if (content.isNullOrBlank() || amount.isNullOrBlank()) {
             notify.value = "Save failed!"
             return
         }
 
-        val note = Note(createdDate, content, amount.toDouble(), categoryId, categoryType)
+        val note = Note(createdDate, content, amount.toDouble(), category)
         InMemoryDataSource.addNote(note)
         notify.value = "Save successfully!"
     }

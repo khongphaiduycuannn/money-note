@@ -5,6 +5,6 @@
     <solid android:color="@color/calendarHeaderColor" />
 
     <stroke
-        android:width="@dimen/_1sdp"
+        android:width="0.7dp"
         android:color="@color/outlineColor" />
 </shape>

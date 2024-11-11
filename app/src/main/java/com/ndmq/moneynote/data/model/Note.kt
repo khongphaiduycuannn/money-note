@@ -7,8 +7,7 @@ data class Note(
     val createdDate: Date,
     val note: String,
     val expense: Double,
-    val categoryId: Long?,
-    val categoryType: Int
+    val category: Category
 ) {
     @PrimaryKey(autoGenerate = true)
     var id: Long? = null

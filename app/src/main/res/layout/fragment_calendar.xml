@@ -4,17 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:scrollbars="none"
+    tools:context=".presentation.calendar.CalendarFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:context=".presentation.calendar.CalendarFragment">
+        android:background="@color/highlightBackgroundColor"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_48sdp"
+            android:layout_height="@dimen/_42sdp"
             android:background="@color/primaryColor"
             android:gravity="center_vertical"
             android:paddingStart="@dimen/_10sdp"
@@ -30,10 +32,10 @@
 
             <ImageView
                 android:id="@+id/ivSearch"
-                android:layout_width="@dimen/_32sdp"
-                android:layout_height="@dimen/_32sdp"
+                android:layout_width="@dimen/_34sdp"
+                android:layout_height="@dimen/_34sdp"
                 android:contentDescription="@null"
-                android:padding="@dimen/_2sdp"
+                android:padding="@dimen/_3sdp"
                 android:src="@drawable/ic_hehe"
                 app:tint="@color/highlightTextColor" />
         </LinearLayout>
@@ -57,7 +59,7 @@
                 android:id="@+id/tvSelectedDate"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_2sdp"
+                android:layout_marginHorizontal="@dimen/_4sdp"
                 android:layout_weight="1"
                 android:background="@drawable/bg_edt_add_note"
                 android:gravity="center"
@@ -67,7 +69,7 @@
                 android:textStyle="bold"
                 app:drawableEndCompat="@drawable/ic_hehe"
                 app:drawableTint="@color/primaryColor"
-                tools:text="11.5.2025 (Tue)" />
+                tools:text="Nov 2024" />
 
             <ImageView
                 android:id="@+id/btnNextDay"
@@ -78,6 +80,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/titlesContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -100,13 +103,18 @@
             android:id="@+id/calendar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_minus1sdp" />
+            android:layout_marginTop="@dimen/_minus1sdp"
+            app:cv_daySize="seventhWidth"
+            app:cv_dayViewResource="@layout/item_calendar_date"
+            tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            tools:listitem="@layout/item_calendar_date"
+            tools:spanCount="7" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_10sdp"
-            android:layout_marginVertical="@dimen/_13sdp"
+            android:layout_marginHorizontal="@dimen/_13sdp"
+            android:layout_marginVertical="@dimen/_16sdp"
             android:background="@drawable/bg_layout_calendar_total">
 
             <LinearLayout
@@ -125,6 +133,7 @@
                     android:textSize="@dimen/_11sdp" />
 
                 <TextView
+                    android:id="@+id/tvIncome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_2sdp"
@@ -157,6 +166,7 @@
                     android:textSize="@dimen/_11sdp" />
 
                 <TextView
+                    android:id="@+id/tvExpense"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_2sdp"
@@ -189,6 +199,7 @@
                     android:textSize="@dimen/_11sdp" />
 
                 <TextView
+                    android:id="@+id/tvTotal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_2sdp"

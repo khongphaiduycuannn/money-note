@@ -11,35 +11,35 @@
         android:id="@+id/tvDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_4sdp"
-        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginStart="@dimen/_3sdp"
+        android:layout_marginTop="@dimen/_3sdp"
         android:gravity="center_vertical"
         android:textColor="@color/defaultTextColor"
-        android:textSize="@dimen/_11sdp"
+        android:textSize="@dimen/_10sdp"
         tools:text="1" />
 
     <TextView
         android:id="@+id/tvIncome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_minus2sdp"
         android:layout_marginEnd="@dimen/_1sdp"
         android:gravity="end|center_vertical"
         android:maxLines="1"
         android:textColor="@color/primaryColor"
-        android:textSize="@dimen/_10sdp"
+        android:textSize="@dimen/_8sdp"
         tools:text="0.52" />
 
     <TextView
         android:id="@+id/tvExpense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_minus2sdp"
         android:layout_marginEnd="@dimen/_1sdp"
         android:layout_marginBottom="@dimen/_1sdp"
         android:gravity="end|center_vertical"
         android:maxLines="1"
         android:textColor="@color/errorColor"
-        android:textSize="@dimen/_10sdp"
+        android:textSize="@dimen/_8sdp"
         tools:text="225.55" />
 </LinearLayout>
