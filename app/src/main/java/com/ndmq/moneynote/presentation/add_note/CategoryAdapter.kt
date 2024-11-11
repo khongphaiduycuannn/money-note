@@ -30,6 +30,7 @@ class CategoryAdapter(
                 ivCategoryIcon.setImageResource(category.iconResource)
                 ivCategoryIcon.setColorFilter(category.tintColor)
                 tvCategoryName.text = category.categoryName
+                tvCategoryName.isSelected = true
             }
         }
 
