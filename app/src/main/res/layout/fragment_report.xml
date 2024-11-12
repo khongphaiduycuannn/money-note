@@ -3,11 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     tools:context=".presentation.report.view.ReportFragment">
 
     <com.ndmq.moneynote.presentation.report.view.CircleChartView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="@dimen/_50sdp" />
+        android:layout_height="@dimen/_200sdp"
+        android:paddingHorizontal="@dimen/_80sdp" />
 
 </FrameLayout>
