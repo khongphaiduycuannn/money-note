@@ -15,6 +15,7 @@
     <color name="highlightTextColor">#ffffff</color>
     <color name="backgroundColor">#ffffff</color>
     <color name="highlightBackgroundColor">#f5f5f5</color>
+    <color name="backgroundChartDialog">#323232</color>
     <color name="outlineColor">#efefef</color>
 
     <color name="rippleColor">#dedede</color>

@@ -1,14 +1,277 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundColor"
-    tools:context=".presentation.report.view.ReportFragment">
+    android:fillViewport="true"
+    android:scrollbars="none"
+    tools:context=".presentation.report.ReportFragment">
 
-    <com.ndmq.moneynote.presentation.report.view.CircleChartView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_200sdp"
-        android:paddingHorizontal="@dimen/_80sdp" />
+        android:layout_height="wrap_content"
+        android:background="@color/highlightBackgroundColor"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_42sdp"
+            android:background="@color/primaryColor"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_8sdp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/report"
+                android:textColor="@color/highlightTextColor"
+                android:textSize="@dimen/_15sdp" />
+
+            <ImageView
+                android:id="@+id/ivSearch"
+                android:layout_width="@dimen/_34sdp"
+                android:layout_height="@dimen/_34sdp"
+                android:contentDescription="@null"
+                android:padding="@dimen/_8sdp"
+                android:src="@drawable/ic_search"
+                app:tint="@color/highlightTextColor" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/backgroundColor"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:paddingVertical="@dimen/_10sdp">
+
+            <ImageView
+                android:id="@+id/btnPrevDay"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:contentDescription="@null"
+                android:padding="@dimen/_3sdp"
+                android:src="@drawable/ic_prev" />
+
+            <TextView
+                android:id="@+id/tvSelectedDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_4sdp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_edt_add_note"
+                android:gravity="center"
+                android:padding="@dimen/_7sdp"
+                android:textColor="@color/defaultTextColor"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                app:drawableEndCompat="@drawable/ic_calendar"
+                app:drawableTint="@color/primaryColor"
+                tools:text="Nov 2024" />
+
+            <ImageView
+                android:id="@+id/btnNextDay"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:contentDescription="@null"
+                android:padding="@dimen/_3sdp"
+                android:src="@drawable/ic_next" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_13sdp"
+            android:layout_marginVertical="@dimen/_16sdp"
+            android:background="@drawable/bg_layout_calendar_total"
+            android:elevation="1dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:elevation="@dimen/_1sdp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_7sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/income"
+                        android:textColor="@color/defaultTextColor"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <TextView
+                        android:id="@+id/tvIncome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:maxLines="1"
+                        android:textColor="@color/primaryColor"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold"
+                        tools:text="0.52 $" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginVertical="@dimen/_10sdp"
+                    android:background="@color/defaultIconColor" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_7sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/expense"
+                        android:textColor="@color/defaultTextColor"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <TextView
+                        android:id="@+id/tvExpense"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:maxLines="1"
+                        android:textColor="@color/errorColor"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold"
+                        tools:text="225.55 $" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/_7sdp"
+                android:layout_marginVertical="@dimen/_1sdp"
+                android:background="@color/defaultIconColor" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/_7sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/income_and_expense"
+                    android:textColor="@color/defaultTextColor"
+                    android:textSize="@dimen/_11sdp" />
+
+                <TextView
+                    android:id="@+id/tvTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:maxLines="1"
+                    android:textColor="@color/errorColor"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold"
+                    tools:text="-255.03 $" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/backgroundColor"
+            android:baselineAligned="false"
+            android:elevation="@dimen/_2sdp"
+            android:paddingHorizontal="@dimen/_2sdp">
+
+            <LinearLayout
+                android:id="@+id/btnExpense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvExpenseTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/_7sdp"
+                    android:text="@string/expense"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="@dimen/_13sdp" />
+
+                <View
+                    android:id="@+id/vExpense"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_2sdp"
+                    android:background="@color/primaryColor" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnIncome"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvIncomeTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/_7sdp"
+                    android:text="@string/income"
+                    android:textColor="@color/defaultIconColor"
+                    android:textSize="@dimen/_13sdp" />
+
+                <View
+                    android:id="@+id/vIncome"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_2sdp"
+                    android:background="@android:color/transparent" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.ndmq.moneynote.presentation.report.view.CircleChartView
+            android:id="@+id/reportChart"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_175sdp"
+            android:background="@color/backgroundColor"
+            android:paddingHorizontal="@dimen/_90sdp" />
+
+        <TextView
+            android:id="@+id/tvNoData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/backgroundColor"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            android:text="@string/no_data"
+            android:textColor="@color/defaultTextColor"
+            android:textSize="@dimen/_13sdp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rclExpense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/item_report_category" />
+    </LinearLayout>
+</ScrollView>

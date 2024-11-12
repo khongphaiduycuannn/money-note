@@ -5,6 +5,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import android.graphics.Path
 import android.graphics.RectF
 import android.graphics.Typeface
 import android.text.TextPaint
@@ -13,9 +14,12 @@ import android.view.MotionEvent
 import android.view.View
 import androidx.core.content.ContextCompat
 import com.ndmq.moneynote.R
+import com.ndmq.moneynote.data.model.dto.ChartPart
 import com.ndmq.moneynote.presentation.report.view.MathUtil.degreeToRadian
 import com.ndmq.moneynote.presentation.report.view.MathUtil.getC
 import com.ndmq.moneynote.presentation.report.view.MathUtil.radianToDegree
+import java.math.BigDecimal
+import java.math.RoundingMode
 import kotlin.math.atan
 import kotlin.math.cos
 import kotlin.math.max
@@ -51,6 +55,15 @@ class CircleChartView : View {
     private var circleIn1 = RectF()
     private var circleIn2 = RectF()
 
+    private val dialogPaint by lazy {
+        Paint().apply {
+            style = Paint.Style.FILL
+            isAntiAlias = true
+            color = ContextCompat.getColor(context, R.color.backgroundChartDialog)
+        }
+    }
+    private val dialogPath = Path()
+
     private val defaultPaint by lazy {
         Paint().apply {
             style = Paint.Style.FILL
@@ -72,7 +85,7 @@ class CircleChartView : View {
     private val paintTextPercent by lazy {
         TextPaint().apply {
             color = ContextCompat.getColor(context, R.color.defaultTextColor)
-            textSize = 21f
+            textSize = 24f
             typeface = Typeface.create(Typeface.DEFAULT, Typeface.NORMAL)
         }
     }
@@ -80,7 +93,23 @@ class CircleChartView : View {
     private val paintTextCategory by lazy {
         TextPaint().apply {
             color = ContextCompat.getColor(context, R.color.defaultTextColor)
-            textSize = 21f
+            textSize = 24f
+            typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
+        }
+    }
+
+    private val paintTextDialog by lazy {
+        TextPaint().apply {
+            color = ContextCompat.getColor(context, R.color.highlightTextColor)
+            textSize = 26f
+            typeface = Typeface.create(Typeface.DEFAULT, Typeface.NORMAL)
+        }
+    }
+
+    private val paintBoldTextDialog by lazy {
+        TextPaint().apply {
+            color = ContextCompat.getColor(context, R.color.highlightTextColor)
+            textSize = 26f
             typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
         }
     }
@@ -108,7 +137,7 @@ class CircleChartView : View {
             centerY + outRadius
         )
 
-        outRadiusSelected = radius - padding / 1.25f
+        outRadiusSelected = radius - padding / 1.5f
         circleOutSelected = RectF(
             centerX - outRadiusSelected,
             centerY - outRadiusSelected,
@@ -145,6 +174,104 @@ class CircleChartView : View {
         if (parts.isEmpty())
             canvas.drawArc(circleOut, -90f, 360f, true, defaultPaint)
 
+        drawOutCircle(canvas)
+        drawChartPartInformation(canvas)
+
+        canvas.drawArc(circleIn1, -90f, 360f, true, Paint().apply {
+            color = Color.WHITE
+        })
+
+        drawInAlphaCircle(canvas)
+
+        canvas.drawArc(circleIn2, -90f, 360f, true, Paint().apply {
+            color = Color.WHITE
+        })
+
+        drawPathInfoDialog(canvas)
+    }
+
+    private fun drawPathInfoDialog(canvas: Canvas) {
+        if (selectedPart == null) return
+
+        var prevAngle = -90f
+        parts.forEachIndexed { _, chartPart ->
+            if (chartPart == selectedPart) {
+                var bx = centerX + (radius * sin(degreeToRadian(prevAngle + 90f)) + radius * sin(
+                    degreeToRadian(prevAngle + 90f + chartPart.percent * 3.6f)
+                )) / 2
+                val by = centerY - (radius * cos(degreeToRadian(prevAngle + 90f)) + radius * cos(
+                    degreeToRadian(prevAngle + 90f + chartPart.percent * 3.6f)
+                )) / 2
+                if ((prevAngle + 90f) in 0f..0.1f && chartPart.percent in 49.9f..50.1f) {
+                    bx += 10
+                }
+                if ((prevAngle + 90f) in 179.9f..180.1f && chartPart.percent in 49.9f..50.1f) {
+                    bx -= 10
+                }
+
+                val c = if (chartPart.percent <= 50) {
+                    getC(centerX, centerY, bx, by, radius / 1.65f)
+                } else {
+                    getC(centerX, centerY, bx, by, radius / 1.65f, true)
+                }
+
+                val percent =
+                    "${BigDecimal(chartPart.percent.toDouble()).setScale(2, RoundingMode.HALF_UP)}%"
+                val category = chartPart.categoryName
+                val total = "${chartPart.total}$"
+                val width = max(
+                    max(
+                        paintTextDialog.measureText(percent),
+                        paintTextDialog.measureText(category)
+                    ), paintBoldTextDialog.measureText(total)
+                )
+
+                dialogPath.reset()
+                dialogPath.moveTo(c[0], c[1])
+                dialogPath.lineTo(c[0] + 12, c[1] + 16)
+                dialogPath.lineTo(c[0] + width / 2 + 20, c[1] + 16)
+                dialogPath.quadTo(
+                    c[0] + width / 2 + 28,
+                    c[1] + 16,
+                    c[0] + width / 2 + 28,
+                    c[1] + 24
+                )
+                dialogPath.lineTo(c[0] + width / 2 + 28, c[1] + 152)
+                dialogPath.quadTo(
+                    c[0] + width / 2 + 28,
+                    c[1] + 160,
+                    c[0] + width / 2 + 20,
+                    c[1] + 160
+                )
+                dialogPath.lineTo(c[0] - width / 2 - 20, c[1] + 160)
+                dialogPath.quadTo(
+                    c[0] - width / 2 - 28,
+                    c[1] + 160,
+                    c[0] - width / 2 - 28,
+                    c[1] + 152
+                )
+                dialogPath.lineTo(c[0] - width / 2 - 28, c[1] + 24)
+                dialogPath.quadTo(
+                    c[0] - width / 2 - 28,
+                    c[1] + 16,
+                    c[0] - width / 2 - 20,
+                    c[1] + 16
+                )
+                dialogPath.lineTo(c[0] - 12, c[1] + 16)
+                dialogPath.lineTo(c[0], c[1])
+                canvas.drawPath(dialogPath, dialogPaint)
+
+                selectedPart?.let {
+                    canvas.drawText(category, c[0] - width / 2, c[1] + 58, paintTextDialog)
+                    canvas.drawText(total, c[0] - width / 2, c[1] + 98, paintBoldTextDialog)
+                    canvas.drawText(percent, c[0] - width / 2, c[1] + 140, paintTextDialog)
+                }
+            }
+            prevAngle += chartPart.percent * 3.6f
+        }
+    }
+
+    private fun drawOutCircle(canvas: Canvas) {
         var prevAngle = -90f
         parts.forEachIndexed { index, chartPart ->
             canvas.drawArc(
@@ -156,8 +283,10 @@ class CircleChartView : View {
             )
             prevAngle += chartPart.percent * 3.6f
         }
+    }
 
-        prevAngle = -90f
+    private fun drawChartPartInformation(canvas: Canvas) {
+        var prevAngle = -90f
         parts.forEachIndexed { index, chartPart ->
             if (chartPart.percent >= 10) {
                 var bx = centerX + (radius * sin(degreeToRadian(prevAngle + 90f)) + radius * sin(
@@ -173,24 +302,26 @@ class CircleChartView : View {
                     bx -= 10
                 }
 
+                val percent =
+                    BigDecimal(chartPart.percent.toDouble()).setScale(2, RoundingMode.HALF_UP)
                 if (chartPart.percent <= 50) {
                     val c = getC(centerX, centerY, bx, by, radius / 7 * 8)
                     canvas.drawLine(centerX, centerY, c[0], c[1], paints[index])
                     if (c[0] - centerX > 0) {
                         canvas.drawLine(c[0], c[1], c[0] + 30, c[1], paints[index])
                         canvas.drawText(
-                            "${chartPart.percent} %", c[0] + 40, c[1] - 5, paintTextPercent
+                            "$percent %", c[0] + 40, c[1] - 5, paintTextPercent
                         )
                         canvas.drawText(
                             chartPart.categoryName, c[0] + 40, c[1] + 20, paintTextCategory
                         )
                     } else {
                         canvas.drawLine(c[0], c[1], c[0] - 30, c[1], paints[index])
-                        val widthPercent = paintTextPercent.measureText("${chartPart.percent} %")
+                        val widthPercent = paintTextPercent.measureText("$percent %")
                         val widthCategory = paintTextCategory.measureText(chartPart.categoryName)
                         val startX = c[0] - 40 - max(widthCategory, widthPercent)
                         canvas.drawText(
-                            "${chartPart.percent} %", startX, c[1] - 5, paintTextPercent
+                            "$percent %", startX, c[1] - 5, paintTextPercent
                         )
                         canvas.drawText(
                             chartPart.categoryName, startX, c[1] + 20, paintTextCategory
@@ -201,11 +332,11 @@ class CircleChartView : View {
                     canvas.drawLine(centerX, centerY, c[0], c[1], paints[index])
                     if (c[0] - centerX < 0) {
                         canvas.drawLine(c[0], c[1], c[0] - 30, c[1], paints[index])
-                        val widthPercent = paintTextPercent.measureText("${chartPart.percent} %")
+                        val widthPercent = paintTextPercent.measureText("${percent} %")
                         val widthCategory = paintTextCategory.measureText(chartPart.categoryName)
                         val startX = c[0] - 40 - max(widthCategory, widthPercent)
                         canvas.drawText(
-                            "${chartPart.percent} %", startX, c[1] - 5, paintTextPercent
+                            "$percent %", startX, c[1] - 5, paintTextPercent
                         )
                         canvas.drawText(
                             chartPart.categoryName, startX, c[1] + 20, paintTextCategory
@@ -213,7 +344,7 @@ class CircleChartView : View {
                     } else {
                         canvas.drawLine(c[0], c[1], c[0] + 30, c[1], paints[index])
                         canvas.drawText(
-                            "${chartPart.percent} %", c[0] + 40, c[1] - 5, paintTextPercent
+                            "$percent %", c[0] + 40, c[1] - 5, paintTextPercent
                         )
                         canvas.drawText(
                             chartPart.categoryName, c[0] + 40, c[1] + 20, paintTextCategory
@@ -223,11 +354,10 @@ class CircleChartView : View {
             }
             prevAngle += chartPart.percent * 3.6f
         }
+    }
 
-        canvas.drawArc(circleIn1, -90f, 360f, true, Paint().apply {
-            color = Color.WHITE
-        })
-
+    private fun drawInAlphaCircle(canvas: Canvas) {
+        var prevAngle = -90f
         if (parts.isEmpty())
             canvas.drawArc(circleOut, -90f, 360f, true, defaultAlphaPaint)
         parts.forEachIndexed { index, chartPart ->
@@ -240,10 +370,6 @@ class CircleChartView : View {
             )
             prevAngle += chartPart.percent * 3.6f
         }
-
-        canvas.drawArc(circleIn2, -90f, 360f, true, Paint().apply {
-            color = Color.WHITE
-        })
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
@@ -251,7 +377,7 @@ class CircleChartView : View {
             val dis = sqrt(
                 (event.x - centerX) * (event.x - centerX) + (event.y - centerY) * (event.y - centerY)
             )
-            if (dis > radius) {
+            if (dis > radius || dis < inRadius2) {
                 selectedPart = null
                 invalidate()
                 return super.onTouchEvent(event)
