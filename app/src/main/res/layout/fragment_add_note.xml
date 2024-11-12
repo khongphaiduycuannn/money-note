@@ -27,11 +27,11 @@
 
         <ImageView
             android:id="@+id/ivSaveNote"
-            android:layout_width="@dimen/_34sdp"
-            android:layout_height="@dimen/_34sdp"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
             android:contentDescription="@null"
-            android:padding="@dimen/_3sdp"
-            android:src="@drawable/ic_hehe"
+            android:padding="@dimen/_6sdp"
+            android:src="@drawable/ic_add_note"
             app:tint="@color/highlightTextColor" />
     </LinearLayout>
 
@@ -119,7 +119,8 @@
                 android:layout_width="@dimen/_24sdp"
                 android:layout_height="@dimen/_24sdp"
                 android:contentDescription="@null"
-                android:src="@drawable/ic_hehe" />
+                android:padding="@dimen/_3sdp"
+                android:src="@drawable/ic_prev" />
 
             <TextView
                 android:id="@+id/tvSelectedDate"
@@ -132,7 +133,7 @@
                 android:padding="@dimen/_7sdp"
                 android:textColor="@color/defaultTextColor"
                 android:textSize="@dimen/_12sdp"
-                app:drawableEndCompat="@drawable/ic_hehe"
+                app:drawableEndCompat="@drawable/ic_calendar"
                 app:drawableTint="@color/primaryColor"
                 tools:text="11.5.2025 (Tue)" />
 
@@ -141,7 +142,8 @@
                 android:layout_width="@dimen/_24sdp"
                 android:layout_height="@dimen/_24sdp"
                 android:contentDescription="@null"
-                android:src="@drawable/ic_hehe" />
+                android:padding="@dimen/_3sdp"
+                android:src="@drawable/ic_next" />
         </LinearLayout>
     </LinearLayout>
 

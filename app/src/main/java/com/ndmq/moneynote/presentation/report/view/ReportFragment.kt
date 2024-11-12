@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.ndmq.moneynote.databinding.FragmentReportBinding
+import com.ndmq.moneynote.presentation.MainActivity
+import com.ndmq.moneynote.utils.constant.Screen
 
 class ReportFragment : Fragment() {
 
@@ -20,6 +22,14 @@ class ReportFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        initView()
+    }
 
+    private fun initView() {
+        initBottomNavBarIcon()
+    }
+
+    private fun initBottomNavBarIcon() {
+        (activity as MainActivity).setCurrentScreen(Screen.REPORT)
     }
 }

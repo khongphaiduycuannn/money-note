@@ -16,6 +16,11 @@
         android:layout_weight="1"
         app:defaultNavHost="true"
         app:navGraph="@navigation/main_nav" />
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/defaultIconColor"/>
 
     <LinearLayout
         android:id="@+id/llBottomNavBar"
@@ -36,10 +41,10 @@
 
             <ImageView
                 android:id="@+id/ivInput"
-                android:layout_width="@dimen/_26sdp"
-                android:layout_height="@dimen/_26sdp"
-                android:src="@drawable/ic_hehe"
-                android:tint="@color/highlightIconColor" />
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:src="@drawable/ic_add_note"
+                app:tint="@color/highlightIconColor" />
 
             <TextView
                 android:id="@+id/tvInput"
@@ -65,10 +70,10 @@
 
             <ImageView
                 android:id="@+id/ivCalendar"
-                android:layout_width="@dimen/_26sdp"
-                android:layout_height="@dimen/_26sdp"
-                android:src="@drawable/ic_hehe"
-                android:tint="@color/defaultIconColor" />
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:src="@drawable/ic_calendar"
+                app:tint="@color/defaultIconColor" />
 
             <TextView
                 android:id="@+id/tvCalendar"
@@ -94,10 +99,10 @@
 
             <ImageView
                 android:id="@+id/ivReport"
-                android:layout_width="@dimen/_26sdp"
-                android:layout_height="@dimen/_26sdp"
-                android:src="@drawable/ic_hehe"
-                android:tint="@color/defaultIconColor" />
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:src="@drawable/ic_report"
+                app:tint="@color/defaultIconColor" />
 
             <TextView
                 android:id="@+id/tvReport"
@@ -123,10 +128,10 @@
 
             <ImageView
                 android:id="@+id/ivSetting"
-                android:layout_width="@dimen/_26sdp"
-                android:layout_height="@dimen/_26sdp"
-                android:src="@drawable/ic_hehe"
-                android:tint="@color/defaultIconColor" />
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:src="@drawable/ic_setting"
+                app:tint="@color/defaultIconColor" />
 
             <TextView
                 android:id="@+id/tvSetting"
