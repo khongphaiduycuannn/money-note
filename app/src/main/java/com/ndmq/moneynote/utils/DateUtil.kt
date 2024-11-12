@@ -41,6 +41,15 @@ fun getFirstDayOfMonth(calendarMonth: CalendarMonth): Date {
     }.time
 }
 
+fun getFirstDayOfMonth(yearMonth: YearMonth): Date {
+    val month = yearMonth.month.value - 1
+    val year = yearMonth.year
+    return getCalendar(getFirstDayOfMonth(Date())).apply {
+        set(Calendar.MONTH, month)
+        set(Calendar.YEAR, year)
+    }.time
+}
+
 fun getStartOfDate(date: Date): Date {
     return Calendar.getInstance().apply {
         time = date
@@ -70,6 +79,40 @@ fun Date.inMonth(calendarMonth: CalendarMonth): Boolean {
         getStartOfDate(getFirstDayOfMonth(calendarMonth.copy(YearMonth.of(year, month)))).time
     val time = this.time
     return (time in startOfDate..<endOfDate)
+}
+
+fun Date.inMonth(yearMonth: YearMonth): Boolean {
+    val startOfDate = getStartOfDate(getFirstDayOfMonth(yearMonth)).time
+    var month = yearMonth.month.value + 1
+    var year = yearMonth.year
+    if (month > 12) {
+        month = 1
+        year++
+    }
+    val endOfDate =
+        getStartOfDate(getFirstDayOfMonth(YearMonth.of(year, month))).time
+    val time = this.time
+    return (time in startOfDate..<endOfDate)
+}
+
+fun getNextMonth(yearMonth: YearMonth): YearMonth {
+    var month = yearMonth.month.value + 1
+    var year = yearMonth.year
+    if (month > 12) {
+        month = 1
+        year++
+    }
+    return YearMonth.of(year, month)
+}
+
+fun getPreviousMonth(yearMonth: YearMonth): YearMonth {
+    var month = yearMonth.month.value - 1
+    var year = yearMonth.year
+    if (month < 1) {
+        month = 12
+        year--
+    }
+    return YearMonth.of(year, month)
 }
 
 fun asYearMonth(date: Date): YearMonth {
