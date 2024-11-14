@@ -17,10 +17,15 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/main_nav" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/defaultIconColor" />
+
     <LinearLayout
         android:id="@+id/llBottomNavBar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_48sdp"
+        android:layout_height="@dimen/_46sdp"
         android:background="@color/highlightBackgroundColor">
 
         <LinearLayout
@@ -36,10 +41,11 @@
 
             <ImageView
                 android:id="@+id/ivInput"
-                android:layout_width="@dimen/_26sdp"
-                android:layout_height="@dimen/_26sdp"
-                android:src="@drawable/ic_hehe"
-                android:tint="@color/highlightIconColor" />
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_2sdp"
+                android:src="@drawable/ic_add_note"
+                app:tint="@color/highlightIconColor" />
 
             <TextView
                 android:id="@+id/tvInput"
@@ -65,10 +71,11 @@
 
             <ImageView
                 android:id="@+id/ivCalendar"
-                android:layout_width="@dimen/_26sdp"
-                android:layout_height="@dimen/_26sdp"
-                android:src="@drawable/ic_hehe"
-                android:tint="@color/defaultIconColor" />
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_2sdp"
+                android:src="@drawable/ic_calendar"
+                app:tint="@color/defaultIconColor" />
 
             <TextView
                 android:id="@+id/tvCalendar"
@@ -94,10 +101,11 @@
 
             <ImageView
                 android:id="@+id/ivReport"
-                android:layout_width="@dimen/_26sdp"
-                android:layout_height="@dimen/_26sdp"
-                android:src="@drawable/ic_hehe"
-                android:tint="@color/defaultIconColor" />
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_2sdp"
+                android:src="@drawable/ic_report"
+                app:tint="@color/defaultIconColor" />
 
             <TextView
                 android:id="@+id/tvReport"
@@ -123,16 +131,17 @@
 
             <ImageView
                 android:id="@+id/ivSetting"
-                android:layout_width="@dimen/_26sdp"
-                android:layout_height="@dimen/_26sdp"
-                android:src="@drawable/ic_hehe"
-                android:tint="@color/defaultIconColor" />
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/ic_setting"
+                app:tint="@color/defaultIconColor" />
 
             <TextView
                 android:id="@+id/tvSetting"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_minus2sdp"
+                android:layout_marginBottom="@dimen/_2sdp"
                 android:gravity="center"
                 android:text="@string/setting"
                 android:textSize="@dimen/_10sdp"

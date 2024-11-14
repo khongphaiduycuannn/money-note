@@ -16,6 +16,7 @@
         android:layout_width="@dimen/_30sdp"
         android:layout_height="@dimen/_30sdp"
         android:contentDescription="@null"
+        android:padding="@dimen/_4sdp"
         android:src="@drawable/ic_hehe"
         app:tint="@android:color/holo_red_dark" />
 
@@ -24,12 +25,31 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_6sdp"
-        android:layout_weight="1"
-        android:ellipsize="end"
+        android:layout_weight="1.4"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
         android:maxLines="1"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
         android:textColor="@color/defaultTextColor"
         android:textSize="@dimen/_13sdp"
         android:textStyle="bold"
+        tools:text="Food" />
+
+    <TextView
+        android:id="@+id/tvNote"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_weight="3"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:maxLines="1"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:textColor="@color/defaultTextColor"
+        android:textSize="@dimen/_11sdp"
         tools:text="Food" />
 
     <TextView

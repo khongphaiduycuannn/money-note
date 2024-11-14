@@ -37,6 +37,10 @@ class MainActivity : BaseActivity() {
         binding.btnCalendar.setOnClickListener {
             navigateTo(Screen.CALENDAR, R.id.calendarFragment)
         }
+
+        binding.btnReport.setOnClickListener {
+            navigateTo(Screen.REPORT, R.id.reportFragment)
+        }
     }
 
     private fun observeData() {

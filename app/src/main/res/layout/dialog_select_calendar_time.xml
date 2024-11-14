@@ -14,13 +14,13 @@
 
         <ImageView
             android:id="@+id/btnPrevYear"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/_24sdp"
             android:layout_height="match_parent"
             android:adjustViewBounds="false"
             android:contentDescription="@null"
             android:paddingHorizontal="@dimen/_3sdp"
             android:paddingVertical="@dimen/_7sdp"
-            android:src="@drawable/ic_hehe" />
+            android:src="@drawable/ic_prev" />
 
         <TextView
             android:id="@+id/tvSelectedDate"
@@ -39,13 +39,13 @@
 
         <ImageView
             android:id="@+id/btnNextYear"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/_24sdp"
             android:layout_height="match_parent"
             android:adjustViewBounds="false"
             android:contentDescription="@null"
             android:paddingHorizontal="@dimen/_3sdp"
             android:paddingVertical="@dimen/_7sdp"
-            android:src="@drawable/ic_hehe" />
+            android:src="@drawable/ic_next" />
     </LinearLayout>
 
     <RadioGroup

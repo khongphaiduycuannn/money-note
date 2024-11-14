@@ -15,4 +15,9 @@
         android:name="com.ndmq.moneynote.presentation.calendar.CalendarFragment"
         android:label="fragment_calendar"
         tools:layout="@layout/fragment_calendar" />
+    <fragment
+        android:id="@+id/reportFragment"
+        android:name="com.ndmq.moneynote.presentation.report.ReportFragment"
+        android:label="fragment_report"
+        tools:layout="@layout/fragment_report" />
 </navigation>

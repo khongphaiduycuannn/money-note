@@ -34,10 +34,15 @@ class DetailDateNotesAdapter : Adapter<ViewHolder>() {
         fun onBind(note: Note) {
             with(binding) {
                 ivIcon.apply {
-                    setBackgroundResource(note.category.iconResource)
+                    setImageResource(note.category.iconResource)
                     setColorFilter(note.category.tintColor)
                 }
-                tvName.text = note.note
+                
+                tvName.text = note.category.categoryName
+                tvName.isSelected = true
+
+                tvNote.text = note.note
+                tvNote.isSelected = true
 
                 tvAmount.text = "${note.expense} $"
                 tvAmount.setTextColor(

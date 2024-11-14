@@ -161,7 +161,7 @@ class CalendarFragment : Fragment() {
         val total = income - expense
 
         with(binding) {
-            tvExpense.text = "$expense $"
+            tvExpense.text = "-$expense $"
             tvIncome.text = "$income $"
             tvTotal.text = "$total $"
             tvTotal.setTextColor(
