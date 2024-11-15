@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/backgroundColor"
+    android:elevation="@dimen/_2sdp"
+    android:paddingVertical="@dimen/_5sdp"
+    android:paddingStart="@dimen/_2sdp"
+    android:paddingEnd="@dimen/_5sdp">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rclCategories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/item_fixed_cost_category" />
+</LinearLayout>

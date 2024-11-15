@@ -41,6 +41,10 @@ class MainActivity : BaseActivity() {
         binding.btnReport.setOnClickListener {
             navigateTo(Screen.REPORT, R.id.reportFragment)
         }
+
+        binding.btnSetting.setOnClickListener {
+            navigateTo(Screen.SETTING, R.id.settingFragment)
+        }
     }
 
     private fun observeData() {
@@ -84,6 +88,7 @@ class MainActivity : BaseActivity() {
 
                 else -> {
                     resetBottomBarIcon()
+                    binding.llBottomNavBar.visibility = View.GONE
                 }
             }
         }

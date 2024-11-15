@@ -20,4 +20,22 @@
         android:name="com.ndmq.moneynote.presentation.report.ReportFragment"
         android:label="fragment_report"
         tools:layout="@layout/fragment_report" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.ndmq.moneynote.presentation.setting.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" >
+        <action
+            android:id="@+id/action_settingFragment_to_fixedCostFragment"
+            app:destination="@id/fixedCostFragment"
+            app:enterAnim="@anim/enter_zoom_in"
+            app:exitAnim="@anim/exit_zoom_out"
+            app:popEnterAnim="@anim/enter_zoom_in"
+            app:popExitAnim="@anim/exit_zoom_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/fixedCostFragment"
+        android:name="com.ndmq.moneynote.presentation.setting.FixedCostFragment"
+        android:label="fragment_fixed_cost"
+        tools:layout="@layout/fragment_fixed_cost" />
 </navigation>

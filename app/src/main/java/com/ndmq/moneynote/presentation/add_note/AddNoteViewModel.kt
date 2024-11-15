@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.ndmq.moneynote.data.model.Category
 import com.ndmq.moneynote.data.model.Note
 import com.ndmq.moneynote.data.source.InMemoryDataSource
-import com.ndmq.moneynote.utils.defaultExpenseCategory
+import com.ndmq.moneynote.data.source.defaultExpenseCategory
 import java.util.Calendar
 import java.util.Date
 

@@ -14,10 +14,10 @@ import com.ndmq.moneynote.R
 import com.ndmq.moneynote.data.source.InMemoryDataSource
 import com.ndmq.moneynote.databinding.FragmentAddNoteBinding
 import com.ndmq.moneynote.presentation.MainActivity
-import com.ndmq.moneynote.utils.categories
+import com.ndmq.moneynote.data.source.categories
 import com.ndmq.moneynote.utils.constant.Screen
-import com.ndmq.moneynote.utils.defaultExpenseCategory
-import com.ndmq.moneynote.utils.defaultIncomeCategory
+import com.ndmq.moneynote.data.source.defaultExpenseCategory
+import com.ndmq.moneynote.data.source.defaultIncomeCategory
 import com.ndmq.moneynote.utils.fullFormattedDate
 import java.util.Calendar
 import java.util.Date

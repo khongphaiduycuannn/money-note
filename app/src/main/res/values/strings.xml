@@ -33,4 +33,22 @@
     <string name="ok">OK</string>
     <string name="no_data">No data</string>
     <string name="income_and_expense">Income and expense</string>
+    <string name="fixed_cost_and_periodic_income_settings">Fixed cost and Periodic income settings</string>
+    <string name="edit_categories">Edit categories</string>
+    <string name="initial_balance">Initial balance</string>
+    <string name="theme_color">Theme color</string>
+    <string name="annual_report">Annual report</string>
+    <string name="add_fixed_cost">Add fixed cost</string>
+    <string name="title">Title</string>
+    <string name="amount">Amount</string>
+    <string name="frequency">Frequency</string>
+    <string name="start_date">Start date</string>
+    <string name="end_date">End date</string>
+    <string name="on_saturday_and_sunday">On Saturday and Sunday</string>
+    <string name="None">None</string>
+    <string name="appointed_date">Appointed date</string>
+    <string name="if_the_end_date_is_none_please_note_that_fixed_costs_will_not_be_displayed_on_the_calendar_etc_unless_it_is_a_corresponding_day_non_the_contrary_if_you_set_the_end_date_it_will_alway_be_displayed_on_the_calendar_and_the_report_screen">If the End date is \'None\', please note that fixed costs will not be displayed on the calendar etc. unless it is a corresponding day. \nOn the contrary, if you set the End date, it will alway be displayed on the calendar and the report screen.</string>
+    <string name="do_nothing">Do nothing</string>
+    <string name="set_the_start_date_as_the_before_date">Set the start date as the before date</string>
+    <string name="set_the_start_date_as_the_after_date">Set the start date as the after date</string>
 </resources>

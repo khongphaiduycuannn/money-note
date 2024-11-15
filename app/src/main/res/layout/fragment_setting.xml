@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/highlightBackgroundColor"
+    android:orientation="vertical"
+    tools:context=".presentation.setting.SettingFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_42sdp"
+        android:background="@color/primaryColor"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_8sdp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/setting"
+            android:textColor="@color/highlightTextColor"
+            android:textSize="@dimen/_15sdp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btnFixedCost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/bg_btn_setting_item"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingHorizontal="@dimen/_5sdp"
+        android:paddingVertical="@dimen/_7sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_23sdp"
+            android:layout_height="@dimen/_23sdp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_hehe"
+            app:tint="@color/primaryColor" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:text="@string/fixed_cost_and_periodic_income_settings"
+            android:textColor="@color/defaultTextColor"
+            android:textSize="@dimen/_12sdp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/outlineColor" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_btn_setting_item"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingHorizontal="@dimen/_5sdp"
+        android:paddingVertical="@dimen/_7sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_23sdp"
+            android:layout_height="@dimen/_23sdp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_hehe"
+            app:tint="@color/primaryColor" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:text="@string/edit_categories"
+            android:textColor="@color/defaultTextColor"
+            android:textSize="@dimen/_12sdp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/bg_btn_setting_item"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingHorizontal="@dimen/_5sdp"
+        android:paddingVertical="@dimen/_7sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_23sdp"
+            android:layout_height="@dimen/_23sdp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_hehe"
+            app:tint="@color/primaryColor" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:text="@string/initial_balance"
+            android:textColor="@color/defaultTextColor"
+            android:textSize="@dimen/_12sdp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/outlineColor" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_btn_setting_item"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingHorizontal="@dimen/_5sdp"
+        android:paddingVertical="@dimen/_7sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_23sdp"
+            android:layout_height="@dimen/_23sdp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_hehe"
+            app:tint="@color/primaryColor" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:text="@string/annual_report"
+            android:textColor="@color/defaultTextColor"
+            android:textSize="@dimen/_12sdp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/bg_btn_setting_item"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingHorizontal="@dimen/_5sdp"
+        android:paddingVertical="@dimen/_7sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_23sdp"
+            android:layout_height="@dimen/_23sdp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_hehe"
+            app:tint="@color/primaryColor" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:text="@string/theme_color"
+            android:textColor="@color/defaultTextColor"
+            android:textSize="@dimen/_12sdp" />
+    </LinearLayout>
+</LinearLayout>

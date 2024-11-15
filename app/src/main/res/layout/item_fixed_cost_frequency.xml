@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/itemFrequency"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_btn_setting_item"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center_vertical"
+    android:paddingHorizontal="@dimen/_5sdp"
+    android:paddingVertical="@dimen/_7sdp">
+
+    <TextView
+        android:id="@+id/tvFrequency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_3sdp"
+        android:textColor="@color/defaultTextColor"
+        android:textSize="@dimen/_12sdp"
+        tools:text="Never" />
+</LinearLayout>
