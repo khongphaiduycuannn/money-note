@@ -2,258 +2,264 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/backgroundColor"
-    android:orientation="vertical"
-    android:padding="@dimen/_3sdp">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:gravity="center">
-
-        <ImageView
-            android:id="@+id/btnPrevYear"
-            android:layout_width="@dimen/_24sdp"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="false"
-            android:contentDescription="@null"
-            android:paddingHorizontal="@dimen/_3sdp"
-            android:paddingVertical="@dimen/_7sdp"
-            android:src="@drawable/ic_prev" />
-
-        <TextView
-            android:id="@+id/tvSelectedDate"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="@dimen/_3sdp"
-            android:layout_marginVertical="@dimen/_4sdp"
-            android:layout_weight="1"
-            android:background="@color/secondaryColor"
-            android:gravity="center"
-            android:padding="@dimen/_7sdp"
-            android:textColor="@color/defaultTextColor"
-            android:textSize="@dimen/_12sdp"
-            android:textStyle="bold"
-            tools:text="2025" />
-
-        <ImageView
-            android:id="@+id/btnNextYear"
-            android:layout_width="@dimen/_24sdp"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="false"
-            android:contentDescription="@null"
-            android:paddingHorizontal="@dimen/_3sdp"
-            android:paddingVertical="@dimen/_7sdp"
-            android:src="@drawable/ic_next" />
-    </LinearLayout>
-
-    <RadioGroup
-        android:id="@+id/rgMonth"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp">
-
-            <android.widget.RadioButton
-                android:id="@+id/rb1"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_weight="1"
-                android:buttonTint="@color/primaryColor"
-                android:checked="false"
-                android:gravity="center"
-                android:text="@string/_1"
-                android:textColor="@color/defaultTextColor"
-                android:textSize="@dimen/_12sdp" />
-
-            <android.widget.RadioButton
-                android:id="@+id/rb2"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_weight="1"
-                android:buttonTint="@color/primaryColor"
-                android:checked="false"
-                android:gravity="center"
-                android:text="@string/_2"
-                android:textColor="@color/defaultTextColor"
-                android:textSize="@dimen/_12sdp" />
-
-            <android.widget.RadioButton
-                android:id="@+id/rb3"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_weight="1"
-                android:buttonTint="@color/primaryColor"
-                android:checked="false"
-                android:gravity="center"
-                android:text="@string/_3"
-                android:textColor="@color/defaultTextColor"
-                android:textSize="@dimen/_12sdp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp">
-
-            <android.widget.RadioButton
-                android:id="@+id/rb4"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_weight="1"
-                android:buttonTint="@color/primaryColor"
-                android:checked="false"
-                android:gravity="center"
-                android:text="@string/_4"
-                android:textColor="@color/defaultTextColor"
-                android:textSize="@dimen/_12sdp" />
-
-            <android.widget.RadioButton
-                android:id="@+id/rb5"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_weight="1"
-                android:buttonTint="@color/primaryColor"
-                android:checked="false"
-                android:gravity="center"
-                android:text="@string/_5"
-                android:textColor="@color/defaultTextColor"
-                android:textSize="@dimen/_12sdp" />
-
-            <android.widget.RadioButton
-                android:id="@+id/rb6"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_weight="1"
-                android:buttonTint="@color/primaryColor"
-                android:checked="false"
-                android:gravity="center"
-                android:text="@string/_6"
-                android:textColor="@color/defaultTextColor"
-                android:textSize="@dimen/_12sdp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp">
-
-            <android.widget.RadioButton
-                android:id="@+id/rb7"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_weight="1"
-                android:buttonTint="@color/primaryColor"
-                android:checked="false"
-                android:gravity="center"
-                android:text="@string/_7"
-                android:textColor="@color/defaultTextColor"
-                android:textSize="@dimen/_12sdp" />
-
-            <android.widget.RadioButton
-                android:id="@+id/rb8"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_weight="1"
-                android:buttonTint="@color/primaryColor"
-                android:checked="false"
-                android:gravity="center"
-                android:text="@string/_8"
-                android:textColor="@color/defaultTextColor"
-                android:textSize="@dimen/_12sdp" />
-
-            <android.widget.RadioButton
-                android:id="@+id/rb9"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_weight="1"
-                android:buttonTint="@color/primaryColor"
-                android:checked="false"
-                android:gravity="center"
-                android:text="@string/_9"
-                android:textColor="@color/defaultTextColor"
-                android:textSize="@dimen/_12sdp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp">
-
-            <android.widget.RadioButton
-                android:id="@+id/rb10"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_weight="1"
-                android:buttonTint="@color/primaryColor"
-                android:checked="false"
-                android:gravity="center"
-                android:text="@string/_10"
-                android:textColor="@color/defaultTextColor"
-                android:textSize="@dimen/_12sdp" />
-
-            <android.widget.RadioButton
-                android:id="@+id/rb11"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_weight="1"
-                android:buttonTint="@color/primaryColor"
-                android:checked="false"
-                android:gravity="center"
-                android:text="@string/_11"
-                android:textColor="@color/defaultTextColor"
-                android:textSize="@dimen/_12sdp" />
-
-            <android.widget.RadioButton
-                android:id="@+id/rb12"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_weight="1"
-                android:buttonTint="@color/primaryColor"
-                android:checked="false"
-                android:gravity="center"
-                android:text="@string/_12"
-                android:textColor="@color/defaultTextColor"
-                android:textSize="@dimen/_12sdp" />
-        </LinearLayout>
-    </RadioGroup>
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:gravity="end"
-        android:paddingHorizontal="@dimen/_15sdp">
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:background="@color/backgroundColor"
+        android:orientation="vertical"
+        android:padding="@dimen/_3sdp">
 
-        <TextView
-            android:id="@+id/btnCancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_btn_calendar_select_time"
-            android:clickable="true"
-            android:focusable="true"
-            android:paddingHorizontal="@dimen/_10sdp"
-            android:paddingVertical="@dimen/_6sdp"
-            android:text="@string/cancel"
-            android:textColor="@color/primaryColor"
-            android:textSize="@dimen/_13sdp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:gravity="center">
 
-        <TextView
-            android:id="@+id/btnOk"
-            android:layout_width="wrap_content"
+            <ImageView
+                android:id="@+id/btnPrevYear"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="false"
+                android:contentDescription="@null"
+                android:paddingHorizontal="@dimen/_3sdp"
+                android:paddingVertical="@dimen/_7sdp"
+                android:src="@drawable/ic_prev" />
+
+            <TextView
+                android:id="@+id/tvSelectedDate"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/_3sdp"
+                android:layout_marginVertical="@dimen/_4sdp"
+                android:layout_weight="1"
+                android:background="@color/secondaryColor"
+                android:gravity="center"
+                android:padding="@dimen/_7sdp"
+                android:textColor="@color/defaultTextColor"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                tools:text="2025" />
+
+            <ImageView
+                android:id="@+id/btnNextYear"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="false"
+                android:contentDescription="@null"
+                android:paddingHorizontal="@dimen/_3sdp"
+                android:paddingVertical="@dimen/_7sdp"
+                android:src="@drawable/ic_next" />
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/rgMonth"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_btn_calendar_select_time"
-            android:clickable="true"
-            android:focusable="true"
-            android:paddingHorizontal="@dimen/_10sdp"
-            android:paddingVertical="@dimen/_6sdp"
-            android:text="@string/ok"
-            android:textColor="@color/primaryColor"
-            android:textSize="@dimen/_13sdp" />
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp">
+
+                <android.widget.RadioButton
+                    android:id="@+id/rb1"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/primaryColor"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="@string/_1"
+                    android:textColor="@color/defaultTextColor"
+                    android:textSize="@dimen/_12sdp" />
+
+                <android.widget.RadioButton
+                    android:id="@+id/rb2"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/primaryColor"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="@string/_2"
+                    android:textColor="@color/defaultTextColor"
+                    android:textSize="@dimen/_12sdp" />
+
+                <android.widget.RadioButton
+                    android:id="@+id/rb3"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/primaryColor"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="@string/_3"
+                    android:textColor="@color/defaultTextColor"
+                    android:textSize="@dimen/_12sdp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp">
+
+                <android.widget.RadioButton
+                    android:id="@+id/rb4"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/primaryColor"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="@string/_4"
+                    android:textColor="@color/defaultTextColor"
+                    android:textSize="@dimen/_12sdp" />
+
+                <android.widget.RadioButton
+                    android:id="@+id/rb5"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/primaryColor"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="@string/_5"
+                    android:textColor="@color/defaultTextColor"
+                    android:textSize="@dimen/_12sdp" />
+
+                <android.widget.RadioButton
+                    android:id="@+id/rb6"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/primaryColor"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="@string/_6"
+                    android:textColor="@color/defaultTextColor"
+                    android:textSize="@dimen/_12sdp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp">
+
+                <android.widget.RadioButton
+                    android:id="@+id/rb7"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/primaryColor"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="@string/_7"
+                    android:textColor="@color/defaultTextColor"
+                    android:textSize="@dimen/_12sdp" />
+
+                <android.widget.RadioButton
+                    android:id="@+id/rb8"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/primaryColor"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="@string/_8"
+                    android:textColor="@color/defaultTextColor"
+                    android:textSize="@dimen/_12sdp" />
+
+                <android.widget.RadioButton
+                    android:id="@+id/rb9"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/primaryColor"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="@string/_9"
+                    android:textColor="@color/defaultTextColor"
+                    android:textSize="@dimen/_12sdp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp">
+
+                <android.widget.RadioButton
+                    android:id="@+id/rb10"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/primaryColor"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="@string/_10"
+                    android:textColor="@color/defaultTextColor"
+                    android:textSize="@dimen/_12sdp" />
+
+                <android.widget.RadioButton
+                    android:id="@+id/rb11"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/primaryColor"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="@string/_11"
+                    android:textColor="@color/defaultTextColor"
+                    android:textSize="@dimen/_12sdp" />
+
+                <android.widget.RadioButton
+                    android:id="@+id/rb12"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/primaryColor"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="@string/_12"
+                    android:textColor="@color/defaultTextColor"
+                    android:textSize="@dimen/_12sdp" />
+            </LinearLayout>
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="end"
+            android:paddingHorizontal="@dimen/_15sdp">
+
+            <TextView
+                android:id="@+id/btnCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_btn_calendar_select_time"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_6sdp"
+                android:text="@string/cancel"
+                android:textColor="@color/primaryColor"
+                android:textSize="@dimen/_13sdp" />
+
+            <TextView
+                android:id="@+id/btnOk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_btn_calendar_select_time"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_6sdp"
+                android:text="@string/ok"
+                android:textColor="@color/primaryColor"
+                android:textSize="@dimen/_13sdp" />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

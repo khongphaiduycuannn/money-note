@@ -1,4 +1,4 @@
-package com.ndmq.moneynote.presentation.setting.adapter
+package com.ndmq.moneynote.presentation.setting.fixed_cost.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

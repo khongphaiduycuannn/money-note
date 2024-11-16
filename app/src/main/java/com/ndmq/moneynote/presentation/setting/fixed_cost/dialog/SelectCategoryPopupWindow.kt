@@ -1,4 +1,4 @@
-package com.ndmq.moneynote.presentation.setting.dialog
+package com.ndmq.moneynote.presentation.setting.fixed_cost.dialog
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.widget.PopupWindow
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ndmq.moneynote.data.model.Category
 import com.ndmq.moneynote.databinding.PopupSelectCategoryBinding
-import com.ndmq.moneynote.presentation.setting.adapter.FixedCostCategoryAdapter
+import com.ndmq.moneynote.presentation.setting.fixed_cost.adapter.FixedCostCategoryAdapter
 
 class SelectCategoryPopupWindow(
     val context: Context

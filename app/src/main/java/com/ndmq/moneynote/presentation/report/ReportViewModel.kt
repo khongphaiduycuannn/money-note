@@ -1,14 +1,20 @@
 package com.ndmq.moneynote.presentation.report
 
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.ndmq.moneynote.base.BaseViewModel
 import com.ndmq.moneynote.data.model.Note
-import com.ndmq.moneynote.data.source.InMemoryDataSource
+import com.ndmq.moneynote.data.repository.AppRepository
+import com.ndmq.moneynote.utils.asDate
 import com.ndmq.moneynote.utils.inMonth
+import dagger.hilt.android.lifecycle.HiltViewModel
 import java.time.YearMonth
 import java.util.Calendar
+import javax.inject.Inject
 
-class ReportViewModel : ViewModel() {
+@HiltViewModel
+class ReportViewModel @Inject constructor(
+    private val appRepository: AppRepository
+) : BaseViewModel() {
 
     /*
     * 1: Expense
@@ -27,10 +33,16 @@ class ReportViewModel : ViewModel() {
 
     fun fetchNotes() {
         currentMonth.value?.let { month ->
-            notes.value = InMemoryDataSource.getNotes()
-                .filter {
-                    it.createdDate.inMonth(month)
+            executeTask(
+                request = {
+                    val startDate = asDate(month.atDay(1))
+                    val endDate = asDate(month.atDay(month.lengthOfMonth()))
+                    appRepository.getNotesInMonth(startDate, endDate)
+                },
+                onSuccess = { result ->
+                    notes.value = result.filter { it.createdDate.inMonth(month) }
                 }
+            )
         }
     }
 }

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/highlightBackgroundColor"
-    tools:context=".presentation.setting.FixedCostFragment"
+    tools:context=".presentation.setting.fixed_cost.FixedCostFragment"
     tools:ignore="ContentDescription">
 
     <ScrollView
@@ -136,6 +134,7 @@
                         android:textSize="@dimen/_12sdp" />
 
                     <EditText
+                        android:id="@+id/edtTitle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/_2sdp"
@@ -181,6 +180,7 @@
                         android:gravity="center">
 
                         <EditText
+                            android:id="@+id/edtAmount"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="@dimen/_2sdp"
@@ -535,7 +535,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_15sdp"
-                android:layout_marginBottom="@dimen/_80sdp"
+                android:layout_marginBottom="@dimen/_100sdp"
                 android:background="@drawable/bg_layout_fixed_code_end_date_description"
                 android:lineSpacingExtra="@dimen/_3sdp"
                 android:padding="@dimen/_8sdp"
@@ -549,7 +549,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@color/backgroundColor">
+        android:background="@color/backgroundColor"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginHorizontal="@dimen/_7sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:padding="@dimen/_5sdp"
+            android:text="@string/delete"
+            android:textColor="@color/primaryColor"
+            android:textSize="@dimen/_13sdp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvSubmit"

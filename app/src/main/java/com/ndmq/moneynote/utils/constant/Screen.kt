@@ -4,5 +4,5 @@ enum class Screen {
     ADD_NOTE,
     CALENDAR,
     REPORT,
-    SETTING, FIXED_COST
+    SETTING, FIXED_COST, FIXED_COSTS_LIST
 }

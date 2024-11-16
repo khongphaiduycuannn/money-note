@@ -9,6 +9,7 @@ import java.time.ZoneOffset
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
+import java.util.concurrent.TimeUnit
 
 fun fullFormattedDate(date: Date): String {
     val format = SimpleDateFormat("dd.MM yyyy (EEE)", Locale.getDefault())
@@ -113,6 +114,18 @@ fun getPreviousMonth(yearMonth: YearMonth): YearMonth {
         year--
     }
     return YearMonth.of(year, month)
+}
+
+fun Date.plusDay(day: Int) {
+    time = Calendar.getInstance().apply {
+        time = this@plusDay
+        add(Calendar.DAY_OF_YEAR, day)
+    }.time.time
+}
+
+fun minusDay(date1: Date, date2: Date): Long {
+    val diffInMillis = getStartOfDate(date2).time - getStartOfDate(date1).time
+    return TimeUnit.MILLISECONDS.toDays(diffInMillis)
 }
 
 fun asYearMonth(date: Date): YearMonth {

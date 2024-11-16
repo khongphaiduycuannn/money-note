@@ -1,14 +1,19 @@
 package com.ndmq.moneynote.data.model
 
+import android.os.Parcelable
+import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parcelize
 import java.util.Date
 
-data class PeriodicMoney(
+@Parcelize
+@Entity(tableName = "fixed_cost")
+data class FixedCost(
     val title: String,
     val amount: Double,
     val category: Category,
     val frequency: Int,
-    val startDate: Date,
+    var startDate: Date,
     val endDate: Date?,
     val onSaturdayAndSunday: Int
     /*
@@ -16,7 +21,7 @@ data class PeriodicMoney(
     * 2: Set the note as before date
     * 3: Set the note as after date
     * */
-) {
+) : Parcelable {
 
     @PrimaryKey(autoGenerate = true)
     var id: Long? = null

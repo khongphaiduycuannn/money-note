@@ -1,20 +1,20 @@
-package com.ndmq.moneynote.data.source
+package com.ndmq.moneynote.data.source.in_memory
 
 import android.graphics.Color
 import com.ndmq.moneynote.R
 import com.ndmq.moneynote.data.model.Category
-import com.ndmq.moneynote.data.model.PeriodicMoney.Companion.EVERY_2_MONTH
-import com.ndmq.moneynote.data.model.PeriodicMoney.Companion.EVERY_2_WEEK
-import com.ndmq.moneynote.data.model.PeriodicMoney.Companion.EVERY_3_MONTH
-import com.ndmq.moneynote.data.model.PeriodicMoney.Companion.EVERY_3_WEEK
-import com.ndmq.moneynote.data.model.PeriodicMoney.Companion.EVERY_4_MONTH
-import com.ndmq.moneynote.data.model.PeriodicMoney.Companion.EVERY_5_MONTH
-import com.ndmq.moneynote.data.model.PeriodicMoney.Companion.EVERY_DAY
-import com.ndmq.moneynote.data.model.PeriodicMoney.Companion.EVERY_HALF_YEAR
-import com.ndmq.moneynote.data.model.PeriodicMoney.Companion.EVERY_MONTH
-import com.ndmq.moneynote.data.model.PeriodicMoney.Companion.EVERY_WEEK
-import com.ndmq.moneynote.data.model.PeriodicMoney.Companion.EVERY_YEAR
-import com.ndmq.moneynote.data.model.PeriodicMoney.Companion.NEVER
+import com.ndmq.moneynote.data.model.FixedCost.Companion.EVERY_2_MONTH
+import com.ndmq.moneynote.data.model.FixedCost.Companion.EVERY_2_WEEK
+import com.ndmq.moneynote.data.model.FixedCost.Companion.EVERY_3_MONTH
+import com.ndmq.moneynote.data.model.FixedCost.Companion.EVERY_3_WEEK
+import com.ndmq.moneynote.data.model.FixedCost.Companion.EVERY_4_MONTH
+import com.ndmq.moneynote.data.model.FixedCost.Companion.EVERY_5_MONTH
+import com.ndmq.moneynote.data.model.FixedCost.Companion.EVERY_DAY
+import com.ndmq.moneynote.data.model.FixedCost.Companion.EVERY_HALF_YEAR
+import com.ndmq.moneynote.data.model.FixedCost.Companion.EVERY_MONTH
+import com.ndmq.moneynote.data.model.FixedCost.Companion.EVERY_WEEK
+import com.ndmq.moneynote.data.model.FixedCost.Companion.EVERY_YEAR
+import com.ndmq.moneynote.data.model.FixedCost.Companion.NEVER
 import com.ndmq.moneynote.data.model.dto.Frequency
 
 val categories = listOf(
@@ -36,7 +36,7 @@ val categories = listOf(
 )
 
 val defaultExpenseCategory = categories[0]
-val defaultIncomeCategory = categories[2]
+val defaultIncomeCategory = categories[10]
 
 val frequencies = listOf(
     Frequency("Never", NEVER),

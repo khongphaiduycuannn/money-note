@@ -1,4 +1,4 @@
-package com.ndmq.moneynote.presentation.setting.dialog
+package com.ndmq.moneynote.presentation.setting.fixed_cost.dialog
 
 import android.content.Context
 import android.view.LayoutInflater

@@ -1,32 +1,39 @@
-package com.ndmq.moneynote.presentation.setting
+package com.ndmq.moneynote.presentation.setting.fixed_cost
 
 import android.app.DatePickerDialog
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.ndmq.moneynote.R
-import com.ndmq.moneynote.data.model.PeriodicMoney.Companion.BEFORE_DATE
-import com.ndmq.moneynote.data.model.PeriodicMoney.Companion.DO_NO_THING
-import com.ndmq.moneynote.data.source.categories
-import com.ndmq.moneynote.data.source.defaultExpenseCategory
-import com.ndmq.moneynote.data.source.defaultIncomeCategory
-import com.ndmq.moneynote.data.source.frequencies
+import com.ndmq.moneynote.data.model.FixedCost
+import com.ndmq.moneynote.data.model.FixedCost.Companion.BEFORE_DATE
+import com.ndmq.moneynote.data.model.FixedCost.Companion.DO_NO_THING
+import com.ndmq.moneynote.data.source.in_memory.categories
+import com.ndmq.moneynote.data.source.in_memory.defaultExpenseCategory
+import com.ndmq.moneynote.data.source.in_memory.defaultIncomeCategory
+import com.ndmq.moneynote.data.source.in_memory.frequencies
 import com.ndmq.moneynote.databinding.FragmentFixedCostBinding
 import com.ndmq.moneynote.presentation.MainActivity
 import com.ndmq.moneynote.presentation.add_note.DatePickerListener
-import com.ndmq.moneynote.presentation.setting.dialog.SelectCategoryPopupWindow
-import com.ndmq.moneynote.presentation.setting.dialog.SelectEndDatePopupWindow
-import com.ndmq.moneynote.presentation.setting.dialog.SelectFrequencyPopupWindow
-import com.ndmq.moneynote.presentation.setting.dialog.SelectOnSaturdayOrSundayPopupWindow
+import com.ndmq.moneynote.presentation.setting.fixed_cost.dialog.SelectCategoryPopupWindow
+import com.ndmq.moneynote.presentation.setting.fixed_cost.dialog.SelectEndDatePopupWindow
+import com.ndmq.moneynote.presentation.setting.fixed_cost.dialog.SelectFrequencyPopupWindow
+import com.ndmq.moneynote.presentation.setting.fixed_cost.dialog.SelectOnSaturdayOrSundayPopupWindow
+import com.ndmq.moneynote.utils.constant.AppConstant
 import com.ndmq.moneynote.utils.constant.Screen
 import com.ndmq.moneynote.utils.fullFormattedDate
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.Calendar
 import java.util.Date
 
+@AndroidEntryPoint
 class FixedCostFragment : Fragment() {
 
     private val binding by lazy { FragmentFixedCostBinding.inflate(layoutInflater) }
@@ -42,6 +49,15 @@ class FixedCostFragment : Fragment() {
 
     private val startDatePickerListener = DatePickerListener()
     private val endDatePickerListener = DatePickerListener()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        initData()
+    }
+
+    private fun initData() {
+        viewModel.categories = categories
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -59,12 +75,74 @@ class FixedCostFragment : Fragment() {
 
     private fun initView() {
         scrollLongText()
+        initSelectedFixedCostView()
         initBottomNavBarIcon()
-        initPopupCategoriesData()
         initPopupFrequenciesData()
     }
 
     private fun handleEvent() {
+        onBackButtonClick()
+        onIncomeExpenseButtonClick()
+        onCategoryButtonClick()
+        onFrequencyButtonClick()
+        onStartDateButtonClick()
+        onEndDateButtonClick()
+        onSaturdayButtonClick()
+        onSaveButtonClick()
+        onDeleteButtonClick()
+    }
+
+    private fun observeData() {
+        observeNotify()
+        observeCategoryType()
+        observeSelectedCategory()
+        observeSelectedFrequency()
+        observeDate()
+        observeOnSaturdayAndSunday()
+    }
+
+    private fun scrollLongText() {
+        binding.tvTitleOnSaturday.isSelected = true
+    }
+
+    private fun initSelectedFixedCostView() {
+        val fixedCost = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            arguments?.getParcelable(AppConstant.FIXED_COST, FixedCost::class.java)
+        } else {
+            arguments?.getParcelable(AppConstant.FIXED_COST) as FixedCost?
+        }
+        arguments?.clear()
+        fixedCost?.apply {
+            binding.edtTitle.setText(title)
+            binding.edtAmount.setText("$amount")
+
+            viewModel.id = id
+            viewModel.categoryType.value = category.categoryType
+            viewModel.selectedCategory.value = category
+            viewModel.frequency.value = frequencies.find { it.type == frequency }
+            viewModel.startDate.value = startDate
+            viewModel.endDate.value = endDate
+            viewModel.onSaturdayOrSunday.value = onSaturdayAndSunday
+        }
+
+        binding.tvDelete.visibility = if (viewModel.id != null) View.VISIBLE else View.GONE
+    }
+
+    private fun initBottomNavBarIcon() {
+        (activity as MainActivity).setCurrentScreen(Screen.FIXED_COST)
+    }
+
+    private fun initPopupFrequenciesData() {
+        selectFrequencyPopupWindow.setDataList(frequencies)
+    }
+
+    private fun onBackButtonClick() {
+        binding.ivBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
+    }
+
+    private fun onIncomeExpenseButtonClick() {
         binding.btnExpense.setOnClickListener {
             viewModel.categoryType.value = 1
             viewModel.selectedCategory.value = defaultExpenseCategory
@@ -75,30 +153,9 @@ class FixedCostFragment : Fragment() {
             viewModel.selectedCategory.value = defaultIncomeCategory
         }
 
-        binding.btnSelectCategory.setOnClickListener {
-            selectCategoryPopupWindow.apply {
-                if (isShowing) dismiss() else showAsDropDown(it)
-            }
-        }
+    }
 
-        binding.btnSelectFrequency.setOnClickListener {
-            selectFrequencyPopupWindow.apply {
-                if (isShowing) dismiss() else showAsDropDown(it)
-            }
-        }
-
-        binding.btnEndDate.setOnClickListener {
-            selectEndDatePopupWindow.apply {
-                if (isShowing) dismiss() else showAsDropDown(it)
-            }
-        }
-
-        binding.btnOnSaturdayAndSunday.setOnClickListener {
-            selectOnSaturdayOrSundayPopupWindow.apply {
-                if (isShowing) dismiss() else showAsDropDown(it)
-            }
-        }
-
+    private fun onStartDateButtonClick() {
         startDatePickerListener.setOnDateSelected {
             viewModel.startDate.value = it
         }
@@ -116,15 +173,39 @@ class FixedCostFragment : Fragment() {
                 calendar.get(Calendar.DAY_OF_MONTH)
             ).show()
         }
+    }
+
+    private fun onCategoryButtonClick() {
+        binding.btnSelectCategory.setOnClickListener {
+            selectCategoryPopupWindow.apply {
+                if (isShowing) dismiss() else showAsDropDown(it)
+            }
+        }
 
         selectCategoryPopupWindow.setOnCategorySelected {
             viewModel.selectedCategory.value = it
             selectCategoryPopupWindow.dismiss()
         }
+    }
+
+    private fun onFrequencyButtonClick() {
+        binding.btnSelectFrequency.setOnClickListener {
+            selectFrequencyPopupWindow.apply {
+                if (isShowing) dismiss() else showAsDropDown(it)
+            }
+        }
 
         selectFrequencyPopupWindow.setOnFrequencySelected {
             viewModel.frequency.value = it
             selectFrequencyPopupWindow.dismiss()
+        }
+    }
+
+    private fun onEndDateButtonClick() {
+        binding.btnEndDate.setOnClickListener {
+            selectEndDatePopupWindow.apply {
+                if (isShowing) dismiss() else showAsDropDown(it)
+            }
         }
 
         selectEndDatePopupWindow.apply {
@@ -152,6 +233,14 @@ class FixedCostFragment : Fragment() {
                 ).show()
             }
         }
+    }
+
+    private fun onSaturdayButtonClick() {
+        binding.btnOnSaturdayAndSunday.setOnClickListener {
+            selectOnSaturdayOrSundayPopupWindow.apply {
+                if (isShowing) dismiss() else showAsDropDown(it)
+            }
+        }
 
         selectOnSaturdayOrSundayPopupWindow.apply {
             setOnNothingButtonClick {
@@ -171,28 +260,47 @@ class FixedCostFragment : Fragment() {
         }
     }
 
-    private fun observeData() {
-        observeCategoryType()
-        observeSelectedCategory()
-        observeSelectedFrequency()
-        observeDate()
-        observeOnSaturdayAndSunday()
+    private fun onSaveButtonClick() {
+        binding.ivSaveNote.setOnClickListener {
+            viewModel
+                .saveFixedCode(
+                    binding.edtTitle.text.toString(),
+                    binding.edtAmount.text.toString(),
+                    doOnComplete = {
+                        findNavController().navigateUp()
+                    }
+                )
+        }
+
+        binding.tvSubmit.setOnClickListener {
+            viewModel
+                .saveFixedCode(
+                    binding.edtTitle.text.toString(),
+                    binding.edtAmount.text.toString(),
+                    doOnComplete = {
+                        findNavController().navigateUp()
+                    }
+                )
+        }
     }
 
-    private fun initBottomNavBarIcon() {
-        (activity as MainActivity).setCurrentScreen(Screen.FIXED_COST)
+    private fun onDeleteButtonClick() {
+        binding.tvDelete.setOnClickListener {
+            viewModel.deleteFixedCost(
+                doOnComplete = {
+                    findNavController().navigateUp()
+                }
+            )
+        }
     }
 
-    private fun scrollLongText() {
-        binding.tvTitleOnSaturday.isSelected = true
-    }
-
-    private fun initPopupCategoriesData() {
-        selectCategoryPopupWindow.setDataList(categories)
-    }
-
-    private fun initPopupFrequenciesData() {
-        selectFrequencyPopupWindow.setDataList(frequencies)
+    private fun observeNotify() {
+        viewModel.notify.observe(viewLifecycleOwner) {
+            if (it != null) {
+                Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+                viewModel.notify.value = null
+            }
+        }
     }
 
     private fun observeCategoryType() {
@@ -223,7 +331,7 @@ class FixedCostFragment : Fragment() {
                 }
             }
 
-            selectCategoryPopupWindow.setDataList(categories.filter { it.categoryType == categoryType })
+            selectCategoryPopupWindow.setDataList(viewModel.categories.filter { it.categoryType == categoryType })
         }
     }
 

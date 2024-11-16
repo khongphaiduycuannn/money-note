@@ -34,7 +34,7 @@ class SettingFragment : Fragment() {
 
     private fun handleEvent() {
         binding.btnFixedCost.setOnClickListener {
-            navigateTo(Screen.FIXED_COST, R.id.action_settingFragment_to_fixedCostFragment)
+            navigateTo(Screen.FIXED_COST, R.id.action_settingFragment_to_fixedCostsListFragment)
         }
     }
 

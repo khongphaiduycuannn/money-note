@@ -89,6 +89,9 @@ dependencies {
 
     // calendar
     implementation(libs.view)
+
+    // gson
+    implementation(libs.gson)
 }
 
 kapt {
