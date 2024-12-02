@@ -7,7 +7,6 @@ import androidx.navigation.findNavController
 import com.ndmq.moneynote.R
 import com.ndmq.moneynote.base.BaseActivity
 import com.ndmq.moneynote.databinding.ActivityMainBinding
-import com.ndmq.moneynote.presentation.setting.fixed_cost.FixedCostManager
 import com.ndmq.moneynote.utils.constant.Screen
 import com.ndmq.moneynote.utils.extension.getColorFromResource
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,9 +22,14 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        initData()
         initView()
         handleEvent()
         observeData()
+    }
+
+    private fun initData() {
+        initDefaultCategory()
     }
 
     private fun initView() {
@@ -52,6 +56,10 @@ class MainActivity : BaseActivity() {
 
     private fun observeData() {
         observeCurrentScreen()
+    }
+
+    private fun initDefaultCategory() {
+        viewModel.initDefaultCategories()
     }
 
     private fun initStatusBarColor() {

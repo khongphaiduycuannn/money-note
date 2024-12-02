@@ -4,6 +4,7 @@ import com.kizitonwose.calendar.core.CalendarMonth
 import java.text.SimpleDateFormat
 import java.time.Instant
 import java.time.LocalDate
+import java.time.Year
 import java.time.YearMonth
 import java.time.ZoneOffset
 import java.util.Calendar
@@ -49,6 +50,12 @@ fun getFirstDayOfMonth(yearMonth: YearMonth): Date {
         set(Calendar.MONTH, month)
         set(Calendar.YEAR, year)
     }.time
+}
+
+fun getFirstAndLastDayOfYear(year: Int): Pair<Date, Date> {
+    val firstDay = Year.of(year).atDay(1)
+    val lastDay = Year.of(year).atDay(Year.of(year).length())
+    return Pair(asDate(firstDay), asDate(lastDay))
 }
 
 fun getStartOfDate(date: Date): Date {

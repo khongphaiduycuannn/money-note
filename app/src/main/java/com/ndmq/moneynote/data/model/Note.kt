@@ -9,6 +9,7 @@ data class Note(
     var createdDate: Date,
     var note: String,
     var expense: Double,
+    var categoryId: Long?,
     var category: Category,
     var fixedCostId: Long? = null
 ) {

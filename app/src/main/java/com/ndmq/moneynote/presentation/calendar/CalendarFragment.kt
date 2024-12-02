@@ -26,6 +26,7 @@ import com.ndmq.moneynote.utils.extension.scrollToNextMonth
 import com.ndmq.moneynote.utils.extension.scrollToPrevMonth
 import com.ndmq.moneynote.utils.getFirstDayOfMonth
 import com.ndmq.moneynote.utils.monthYearFormattedDate
+import com.ndmq.moneynote.utils.navigateTo
 import dagger.hilt.android.AndroidEntryPoint
 import java.time.YearMonth
 import java.time.format.TextStyle
@@ -74,6 +75,10 @@ class CalendarFragment : Fragment() {
     private fun handleEvent() {
         binding.tvSelectedDate.setOnClickListener {
             selectTimeDialog.show()
+        }
+
+        binding.ivSearch.setOnClickListener {
+            navigateTo(Screen.SEARCH, R.id.action_calendarFragment_to_searchFragment)
         }
 
         selectTimeDialog.onConfirmButtonClick = { month, year ->

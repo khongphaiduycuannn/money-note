@@ -52,4 +52,7 @@
     <string name="set_the_start_date_as_the_before_date">Set the start date as the before date</string>
     <string name="set_the_start_date_as_the_after_date">Set the start date as the after date</string>
     <string name="delete">Delete</string>
+    <string name="search">Search</string>
+    <string name="all_period">All Period</string>
+    <string name="_all_period_">(All period)</string>
 </resources>

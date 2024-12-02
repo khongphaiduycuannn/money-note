@@ -11,8 +11,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.ndmq.moneynote.R
 import com.ndmq.moneynote.data.source.in_memory.categories
-import com.ndmq.moneynote.data.source.in_memory.defaultExpenseCategory
-import com.ndmq.moneynote.data.source.in_memory.defaultIncomeCategory
 import com.ndmq.moneynote.databinding.FragmentAddNoteBinding
 import com.ndmq.moneynote.presentation.MainActivity
 import com.ndmq.moneynote.utils.constant.Screen
@@ -48,7 +46,7 @@ class AddNoteFragment : Fragment() {
     }
 
     private fun initData() {
-        viewModel.categories = categories
+        viewModel.fetchData()
     }
 
     private fun initView() {
@@ -59,12 +57,10 @@ class AddNoteFragment : Fragment() {
     private fun handleEvent() {
         binding.btnExpense.setOnClickListener {
             viewModel.categoryType.value = 1
-            viewModel.selectedCategory.value = defaultExpenseCategory
         }
 
         binding.btnIncome.setOnClickListener {
             viewModel.categoryType.value = 2
-            viewModel.selectedCategory.value = defaultIncomeCategory
         }
 
         datePickerListener.setOnDateSelected {
@@ -107,6 +103,7 @@ class AddNoteFragment : Fragment() {
     }
 
     private fun observeData() {
+        observeCategory()
         observeCategoryType()
         observeSelectedDate()
         observeSelectedCategory()
@@ -120,6 +117,19 @@ class AddNoteFragment : Fragment() {
     private fun initCategoryListView() {
         binding.rclCategories.adapter = categoryAdapter
         categoryAdapter.setCategoryList(categories)
+    }
+
+    private fun observeCategory() {
+        viewModel.categories.observe(viewLifecycleOwner) { categories ->
+            if (categories.isNullOrEmpty()) return@observe
+
+            val categoryType = viewModel.categoryType.value ?: 1
+            val filteredCategories = categories.filter { it.categoryType == categoryType }
+            if (filteredCategories.size > 1) {
+                viewModel.selectedCategory.value = filteredCategories.first()
+            }
+            categoryAdapter.setCategoryList(filteredCategories)
+        }
     }
 
     private fun observeCategoryType() {
@@ -149,8 +159,7 @@ class AddNoteFragment : Fragment() {
                     binding.vExpense.setBackgroundResource(R.color.transparent)
                 }
             }
-
-            categoryAdapter.setCategoryList(viewModel.categories.filter { it.categoryType == categoryType })
+            viewModel.categories.value = viewModel.categories.value
         }
     }
 

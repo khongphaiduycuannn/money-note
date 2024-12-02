@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tvTime"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_item_search_time"
+    android:gravity="center"
+    android:padding="@dimen/_8sdp"
+    android:textColor="@color/defaultTextColor"
+    android:textSize="@dimen/_12sdp"
+    tools:text="All Period" />

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/highlightBackgroundColor"
+    android:orientation="vertical"
+    tools:context=".presentation.search.SearchFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_42sdp"
+        android:background="@color/primaryColor"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/_2sdp"
+        android:paddingEnd="@dimen/_8sdp">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:contentDescription="@null"
+            android:padding="@dimen/_6sdp"
+            android:src="@drawable/ic_hehe"
+            app:tint="@color/highlightTextColor" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:text="@string/search"
+            android:textColor="@color/highlightTextColor"
+            android:textSize="@dimen/_15sdp" />
+
+        <TextView
+            android:id="@+id/tvRange"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/_all_period_"
+            android:textColor="@color/highlightTextColor"
+            android:textSize="@dimen/_15sdp" />
+
+        <ImageView
+            android:id="@+id/ivCalendar"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:contentDescription="@null"
+            android:padding="@dimen/_7sdp"
+            android:src="@drawable/ic_calendar"
+            app:tint="@color/highlightTextColor" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroundColor"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginVertical="@dimen/_13sdp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edtSearchKey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_2sdp"
+                android:background="@drawable/bg_edt_add_note"
+                android:gravity="center_vertical"
+                android:hint="@string/title"
+                android:maxLines="6"
+                android:paddingHorizontal="@dimen/_25sdp"
+                android:paddingVertical="@dimen/_7sdp"
+                android:textColor="@color/defaultTextColor"
+                android:textColorHighlight="@color/selectedTextBackgroundColor"
+                android:textColorHint="@color/disableTextColor"
+                android:textCursorDrawable="@drawable/cursor_edt"
+                android:textSize="@dimen/_12sdp" />
+
+            <ImageView
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/_7sdp"
+                android:padding="@dimen/_2sdp"
+                android:src="@drawable/ic_search"
+                app:tint="@color/disableTextColor" />
+
+            <ImageView
+                android:id="@+id/ivClearText"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="@dimen/_7sdp"
+                android:padding="@dimen/_1sdp"
+                android:src="@drawable/ic_hehe"
+                android:visibility="gone"
+                app:tint="@color/defaultTextColor" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_13sdp"
+                android:layout_marginVertical="@dimen/_15sdp"
+                android:background="@drawable/bg_layout_calendar_total">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:elevation="@dimen/_1sdp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_7sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/income"
+                        android:textColor="@color/defaultTextColor"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <TextView
+                        android:id="@+id/tvIncome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:maxLines="1"
+                        android:textColor="@color/primaryColor"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold"
+                        tools:text="0.52 $" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginVertical="@dimen/_10sdp"
+                    android:background="@color/defaultIconColor" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_7sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/expense"
+                        android:textColor="@color/defaultTextColor"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <TextView
+                        android:id="@+id/tvExpense"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:maxLines="1"
+                        android:textColor="@color/errorColor"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold"
+                        tools:text="225.55 $" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginVertical="@dimen/_10sdp"
+                    android:background="@color/defaultIconColor" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_7sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/total"
+                        android:textColor="@color/defaultTextColor"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <TextView
+                        android:id="@+id/tvTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:maxLines="1"
+                        android:textColor="@color/errorColor"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold"
+                        tools:text="-255.03 $" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rclDetailDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:itemCount="1"
+                tools:listitem="@layout/item_category_date_detail_header" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/sampleRclDetailDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_category_date_detail" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
