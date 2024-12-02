@@ -10,7 +10,7 @@ import com.ndmq.moneynote.databinding.ItemCategoryAddNoteBinding
 import com.ndmq.moneynote.databinding.ItemCategoryEditAddNoteBinding
 
 class CategoryAdapter(
-    var onCategoryClick: (Category) -> Unit = {}
+    var onCategoryClick: (Category?) -> Unit = {}
 ) : Adapter<ViewHolder>() {
 
     private val categories = mutableListOf<Category>()
@@ -44,6 +44,11 @@ class CategoryAdapter(
     inner class EditViewHolder(private val binding: ItemCategoryEditAddNoteBinding) :
         ViewHolder(binding.root) {
 
+        fun onClick() {
+            binding.itemEditCategory.setOnClickListener {
+                onCategoryClick(null)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -74,7 +79,7 @@ class CategoryAdapter(
             }
 
             is EditViewHolder -> {
-
+                holder.onClick()
             }
         }
     }

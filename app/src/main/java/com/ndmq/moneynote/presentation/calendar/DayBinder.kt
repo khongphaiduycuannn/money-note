@@ -10,6 +10,7 @@ import com.ndmq.moneynote.R
 import com.ndmq.moneynote.data.model.Note
 import com.ndmq.moneynote.data.model.dto.toListDateNotes
 import com.ndmq.moneynote.utils.asDate
+import com.ndmq.moneynote.utils.constant.formatNumberWithDots
 import com.ndmq.moneynote.utils.getStartOfDate
 import java.time.LocalDate
 import java.util.Date
@@ -49,8 +50,8 @@ class DayBinder(
                 tvExpense.text = ""
                 tvIncome.text = ""
             } else {
-                tvExpense.text = dateData.first.toString()
-                tvIncome.text = dateData.second.toString()
+                tvExpense.text = "${formatNumberWithDots(dateData.first)}"
+                tvIncome.text = "${formatNumberWithDots(dateData.second)}"
             }
 
             llDateItem.setOnClickListener {

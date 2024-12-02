@@ -55,4 +55,14 @@
     <string name="search">Search</string>
     <string name="all_period">All Period</string>
     <string name="_all_period_">(All period)</string>
+    <string name="new_category">New category</string>
+    <string name="save">Save</string>
+    <string name="name">Name</string>
+    <string name="please_input_category_name">Please input category name</string>
+    <string name="icon">Icon</string>
+    <string name="color">Color</string>
+    <string name="edit_category">Edit category</string>
+    <string name="delete_successfully">Delete successfully!</string>
+    <string name="title_mustn_t_be_blank">Title mustn\'t be blank!</string>
+    <string name="save_successfully">Save successfully!</string>
 </resources>

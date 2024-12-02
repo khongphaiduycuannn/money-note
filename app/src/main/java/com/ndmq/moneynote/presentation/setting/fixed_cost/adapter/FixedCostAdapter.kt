@@ -9,8 +9,7 @@ import com.ndmq.moneynote.R
 import com.ndmq.moneynote.data.model.FixedCost
 import com.ndmq.moneynote.data.model.dto.Frequency
 import com.ndmq.moneynote.databinding.ItemFixedCostBinding
-import java.math.BigDecimal
-import java.math.RoundingMode
+import com.ndmq.moneynote.utils.constant.formatNumberWithDots
 
 class FixedCostAdapter(
     val frequencies: List<Frequency>
@@ -34,10 +33,9 @@ class FixedCostAdapter(
             val categoryAndFrequency = "${fixedCost.category.categoryName} / $frequency"
             binding.tvCategoryAndFrequency.text = categoryAndFrequency
 
-            val amount = BigDecimal(fixedCost.amount).setScale(2, RoundingMode.HALF_UP).toString()
             binding.tvAmount.apply {
                 val categoryType = fixedCost.category.categoryType
-                text = "$amount$"
+                text = "${formatNumberWithDots(fixedCost.amount)}"
                 setTextColor(
                     if (categoryType == 1)
                         ContextCompat.getColor(binding.tvName.context, R.color.errorColor)

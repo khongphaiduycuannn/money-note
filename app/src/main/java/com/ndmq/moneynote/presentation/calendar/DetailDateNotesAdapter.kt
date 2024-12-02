@@ -10,6 +10,7 @@ import com.ndmq.moneynote.data.model.Note
 import com.ndmq.moneynote.data.model.dto.DateNotes
 import com.ndmq.moneynote.databinding.ItemCategoryDateDetailBinding
 import com.ndmq.moneynote.databinding.ItemCategoryDateDetailHeaderBinding
+import com.ndmq.moneynote.utils.constant.formatNumberWithDots
 import com.ndmq.moneynote.utils.dateMonthFormattedDate
 
 class DetailDateNotesAdapter : Adapter<ViewHolder>() {
@@ -24,7 +25,7 @@ class DetailDateNotesAdapter : Adapter<ViewHolder>() {
 
         fun onBind(dateNotes: DateNotes) {
             binding.tvDate.text = dateMonthFormattedDate(dateNotes.date)
-            binding.tvTotal.text = "${dateNotes.total} $"
+            binding.tvTotal.text = "${formatNumberWithDots(dateNotes.total)} $"
         }
     }
 
@@ -37,14 +38,14 @@ class DetailDateNotesAdapter : Adapter<ViewHolder>() {
                     setImageResource(note.category.iconResource)
                     setColorFilter(note.category.tintColor)
                 }
-                
+
                 tvName.text = note.category.categoryName
                 tvName.isSelected = true
 
                 tvNote.text = note.note
                 tvNote.isSelected = true
 
-                tvAmount.text = "${note.expense} $"
+                tvAmount.text = "${formatNumberWithDots(note.expense)} $"
                 tvAmount.setTextColor(
                     if (note.category.categoryType == 1) {
                         getColor(tvAmount.context, R.color.disableTextColor)

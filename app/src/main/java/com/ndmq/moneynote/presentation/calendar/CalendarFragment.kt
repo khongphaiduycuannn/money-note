@@ -22,6 +22,7 @@ import com.ndmq.moneynote.utils.asDate
 import com.ndmq.moneynote.utils.asLocalDate
 import com.ndmq.moneynote.utils.asYearMonth
 import com.ndmq.moneynote.utils.constant.Screen
+import com.ndmq.moneynote.utils.constant.formatNumberWithDots
 import com.ndmq.moneynote.utils.extension.scrollToNextMonth
 import com.ndmq.moneynote.utils.extension.scrollToPrevMonth
 import com.ndmq.moneynote.utils.getFirstDayOfMonth
@@ -157,7 +158,8 @@ class CalendarFragment : Fragment() {
     private fun observeNotesData() {
         viewModel.notes.observe(viewLifecycleOwner) {
             calendarDayBinder.setNoteData(it)
-            noteAdapter.setDateNotesList(it.toListDateNotes())
+            noteAdapter.setDateNotesList(
+                it.toListDateNotes().sortedBy { dateNotes -> dateNotes.date })
             setAmountView(it)
         }
     }
@@ -168,9 +170,9 @@ class CalendarFragment : Fragment() {
         val total = income - expense
 
         with(binding) {
-            tvExpense.text = "-$expense $"
-            tvIncome.text = "$income $"
-            tvTotal.text = "$total $"
+            tvExpense.text = "-${formatNumberWithDots(expense)} $"
+            tvIncome.text = "${formatNumberWithDots(income)} $"
+            tvTotal.text = "${formatNumberWithDots(total)} $"
             tvTotal.setTextColor(
                 if (total < 0) getColor(
                     requireContext(),

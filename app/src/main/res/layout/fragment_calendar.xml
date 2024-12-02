@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:nestedScrollingEnabled="true"
     android:scrollbars="none"
     tools:context=".presentation.calendar.CalendarFragment">
 
@@ -35,7 +36,7 @@
                 android:layout_width="@dimen/_34sdp"
                 android:layout_height="@dimen/_34sdp"
                 android:contentDescription="@null"
-                android:padding="@dimen/_8sdp"
+                android:padding="@dimen/_10sdp"
                 android:src="@drawable/ic_search"
                 app:tint="@color/highlightTextColor" />
         </LinearLayout>

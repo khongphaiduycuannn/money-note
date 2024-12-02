@@ -18,6 +18,7 @@ import com.ndmq.moneynote.data.model.dto.ChartPart
 import com.ndmq.moneynote.presentation.report.view.MathUtil.degreeToRadian
 import com.ndmq.moneynote.presentation.report.view.MathUtil.getC
 import com.ndmq.moneynote.presentation.report.view.MathUtil.radianToDegree
+import com.ndmq.moneynote.utils.constant.formatNumberWithDots
 import java.math.BigDecimal
 import java.math.RoundingMode
 import kotlin.math.atan
@@ -218,7 +219,7 @@ class CircleChartView : View {
                 val percent =
                     "${BigDecimal(chartPart.percent.toDouble()).setScale(2, RoundingMode.HALF_UP)}%"
                 val category = chartPart.categoryName
-                val total = "${chartPart.total}$"
+                val total = "${formatNumberWithDots(chartPart.total)}$"
                 val width = max(
                     max(
                         paintTextDialog.measureText(percent),

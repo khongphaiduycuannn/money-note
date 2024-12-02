@@ -15,6 +15,7 @@ import com.ndmq.moneynote.databinding.FragmentReportBinding
 import com.ndmq.moneynote.presentation.MainActivity
 import com.ndmq.moneynote.presentation.add_note.SelectTimeDialog
 import com.ndmq.moneynote.utils.constant.Screen
+import com.ndmq.moneynote.utils.constant.formatNumberWithDots
 import com.ndmq.moneynote.utils.getFirstDayOfMonth
 import com.ndmq.moneynote.utils.getNextMonth
 import com.ndmq.moneynote.utils.getPreviousMonth
@@ -129,9 +130,9 @@ class ReportFragment : Fragment() {
             val total = income - expense
 
             with(binding) {
-                tvIncome.text = "$income $"
-                tvExpense.text = "-$expense $"
-                tvTotal.text = "$total $"
+                tvIncome.text = "${formatNumberWithDots(income)} $"
+                tvExpense.text = "-${formatNumberWithDots(expense)} $"
+                tvTotal.text = "${formatNumberWithDots(total)} $"
                 tvTotal.setTextColor(
                     if (total >= 0) getColor(requireContext(), R.color.primaryColor)
                     else getColor(requireContext(), R.color.errorColor)

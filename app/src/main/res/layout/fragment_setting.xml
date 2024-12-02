@@ -59,6 +59,7 @@
         android:background="@color/outlineColor" />
 
     <LinearLayout
+        android:id="@+id/btnCategory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_btn_setting_item"
@@ -80,91 +81,6 @@
             android:layout_gravity="center_vertical"
             android:layout_marginStart="@dimen/_2sdp"
             android:text="@string/edit_categories"
-            android:textColor="@color/defaultTextColor"
-            android:textSize="@dimen/_12sdp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:background="@drawable/bg_btn_setting_item"
-        android:clickable="true"
-        android:focusable="true"
-        android:paddingHorizontal="@dimen/_5sdp"
-        android:paddingVertical="@dimen/_7sdp">
-
-        <ImageView
-            android:layout_width="@dimen/_23sdp"
-            android:layout_height="@dimen/_23sdp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_hehe"
-            app:tint="@color/primaryColor" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="@dimen/_2sdp"
-            android:text="@string/initial_balance"
-            android:textColor="@color/defaultTextColor"
-            android:textSize="@dimen/_12sdp" />
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/outlineColor" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_btn_setting_item"
-        android:clickable="true"
-        android:focusable="true"
-        android:paddingHorizontal="@dimen/_5sdp"
-        android:paddingVertical="@dimen/_7sdp">
-
-        <ImageView
-            android:layout_width="@dimen/_23sdp"
-            android:layout_height="@dimen/_23sdp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_hehe"
-            app:tint="@color/primaryColor" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="@dimen/_2sdp"
-            android:text="@string/annual_report"
-            android:textColor="@color/defaultTextColor"
-            android:textSize="@dimen/_12sdp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:background="@drawable/bg_btn_setting_item"
-        android:clickable="true"
-        android:focusable="true"
-        android:paddingHorizontal="@dimen/_5sdp"
-        android:paddingVertical="@dimen/_7sdp">
-
-        <ImageView
-            android:layout_width="@dimen/_23sdp"
-            android:layout_height="@dimen/_23sdp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_hehe"
-            app:tint="@color/primaryColor" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="@dimen/_2sdp"
-            android:text="@string/theme_color"
             android:textColor="@color/defaultTextColor"
             android:textSize="@dimen/_12sdp" />
     </LinearLayout>
