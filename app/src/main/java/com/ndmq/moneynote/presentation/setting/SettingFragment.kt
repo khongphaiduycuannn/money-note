@@ -36,6 +36,10 @@ class SettingFragment : Fragment() {
         binding.btnFixedCost.setOnClickListener {
             navigateTo(Screen.FIXED_COST, R.id.action_settingFragment_to_fixedCostsListFragment)
         }
+
+        binding.btnCategory.setOnClickListener {
+            navigateTo(Screen.CATEGORIES, R.id.action_settingFragment_to_categoriesFragment)
+        }
     }
 
     private fun initBottomNavBarIcon() {

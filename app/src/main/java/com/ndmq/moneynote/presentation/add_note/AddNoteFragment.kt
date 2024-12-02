@@ -15,6 +15,7 @@ import com.ndmq.moneynote.databinding.FragmentAddNoteBinding
 import com.ndmq.moneynote.presentation.MainActivity
 import com.ndmq.moneynote.utils.constant.Screen
 import com.ndmq.moneynote.utils.fullFormattedDate
+import com.ndmq.moneynote.utils.navigateTo
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Calendar
 import java.util.Date
@@ -98,7 +99,11 @@ class AddNoteFragment : Fragment() {
         }
 
         categoryAdapter.onCategoryClick = { category ->
-            viewModel.selectedCategory.value = category
+            if (category == null) {
+                navigateTo(Screen.CATEGORIES, R.id.action_addNoteFragment_to_categoriesFragment)
+            } else {
+                viewModel.selectedCategory.value = category
+            }
         }
     }
 

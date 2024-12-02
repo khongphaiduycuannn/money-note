@@ -107,8 +107,20 @@ class AppRepository(
         appDao.getCategories()
     }
 
+    suspend fun addCategory(category: Category) = getResult {
+        appDao.addCategory(category)
+    }
+
     suspend fun addCategories(list: List<Category>) = getResult {
         appDao.addCategories(list)
+    }
+
+    suspend fun updateCategory(category: Category) = getResult {
+        appDao.updateCategory(category)
+    }
+
+    suspend fun deleteCategory(id: Long) = getResult {
+        appDao.deleteCategory(id)
     }
 
     private suspend fun <T> getResult(

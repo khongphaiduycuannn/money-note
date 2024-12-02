@@ -30,7 +30,7 @@
             android:layout_width="@dimen/_32sdp"
             android:layout_height="@dimen/_32sdp"
             android:contentDescription="@null"
-            android:padding="@dimen/_6sdp"
+            android:padding="@dimen/_8sdp"
             android:src="@drawable/ic_add_note"
             app:tint="@color/highlightTextColor" />
     </LinearLayout>

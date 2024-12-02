@@ -20,4 +20,45 @@
 
     <color name="rippleColor">#dedede</color>
     <color name="calendarHeaderColor">#efefef</color>
+
+    <color name="color1">#fee565</color>
+    <color name="color2">#ffc0ac</color>
+    <color name="color3">#fe8c8c</color>
+    <color name="color4">#feb8e0</color>
+    <color name="color5">#ffc8ff</color>
+    <color name="color6">#fe7f00</color>
+    <color name="color7">#fd0000</color>
+    <color name="color8">#ff5390</color>
+    <color name="color9">#ed52b4</color>
+    <color name="color10">#f262fe</color>
+    <color name="color11">#b46700</color>
+    <color name="color12">#ac0002</color>
+    <color name="color13">#af3a4d</color>
+    <color name="color14">#b6006c</color>
+    <color name="color15">#9909a5</color>
+    <color name="color16">#fefe65</color>
+    <color name="color17">#e1fe65</color>
+    <color name="color18">#defeb4</color>
+    <color name="color19">#98fee1</color>
+    <color name="color20">#66fdff</color>
+    <color name="color21">#fee000</color>
+    <color name="color22">#b3fe00</color>
+    <color name="color23">#4ed700</color>
+    <color name="color24">#2fd6a1</color>
+    <color name="color25">#00a0f5</color>
+    <color name="color26">#c0a700</color>
+    <color name="color27">#a7bc00</color>
+    <color name="color28">#009500</color>
+    <color name="color29">#007d85</color>
+    <color name="color30">#0078a3</color>
+    <color name="color31">#66aeff</color>
+    <color name="color32">#e1bdfe</color>
+    <color name="color33">#f3f3f3</color>
+    <color name="color34">#e0e0e0</color>
+    <color name="color35">#757575</color>
+    <color name="color36">#0048ff</color>
+    <color name="color37">#a049ff</color>
+    <color name="color38">#ffffff</color>
+    <color name="color39">#969696</color>
+    <color name="color40">#000000</color>
 </resources>
