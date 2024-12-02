@@ -9,6 +9,7 @@ import com.ndmq.moneynote.data.model.dto.CategoryNotes
 import com.ndmq.moneynote.data.model.dto.getPercent
 import com.ndmq.moneynote.data.model.dto.toListCategoryNotes
 import com.ndmq.moneynote.databinding.ItemReportCategoryBinding
+import com.ndmq.moneynote.utils.constant.formatNumberWithDots
 import java.math.BigDecimal
 import java.math.RoundingMode
 
@@ -29,7 +30,7 @@ class ReportCategoryAdapter : Adapter<ViewHolder>() {
                 ivIcon.setImageResource(category.iconResource)
                 ivIcon.setColorFilter(category.tintColor)
                 tvName.text = category.categoryName
-                tvAmount.text = "${categoryNotes.total}$"
+                tvAmount.text = "${formatNumberWithDots(categoryNotes.total)}$"
                 tvPercent.text = "$roundedPercent%"
             }
         }

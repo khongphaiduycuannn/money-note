@@ -17,6 +17,7 @@ import com.ndmq.moneynote.databinding.FragmentSearchBinding
 import com.ndmq.moneynote.presentation.MainActivity
 import com.ndmq.moneynote.presentation.calendar.DetailDateNotesAdapter
 import com.ndmq.moneynote.utils.constant.Screen
+import com.ndmq.moneynote.utils.constant.formatNumberWithDots
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -85,7 +86,8 @@ class SearchFragment : Fragment() {
 
     private fun observeData() {
         viewModel.searchedNotes.observe(viewLifecycleOwner) {
-            noteAdapter.setDateNotesList(it.toListDateNotes())
+            noteAdapter.setDateNotesList(
+                it.toListDateNotes().sortedBy { dateNotes -> dateNotes.date })
             setAmountView(it)
         }
     }
@@ -105,9 +107,9 @@ class SearchFragment : Fragment() {
         val total = income - expense
 
         with(binding) {
-            tvExpense.text = "-$expense $"
-            tvIncome.text = "$income $"
-            tvTotal.text = "$total $"
+            tvExpense.text = "-${formatNumberWithDots(expense)} $"
+            tvIncome.text = "${formatNumberWithDots(income)} $"
+            tvTotal.text = "${formatNumberWithDots(total)} $"
             tvTotal.setTextColor(
                 if (total < 0) getColor(
                     requireContext(),
