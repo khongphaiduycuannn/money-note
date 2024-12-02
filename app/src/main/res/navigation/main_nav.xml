@@ -27,7 +27,15 @@
         android:id="@+id/reportFragment"
         android:name="com.ndmq.moneynote.presentation.report.ReportFragment"
         android:label="fragment_report"
-        tools:layout="@layout/fragment_report" />
+        tools:layout="@layout/fragment_report" >
+        <action
+            android:id="@+id/action_reportFragment_to_searchFragment"
+            app:destination="@id/searchFragment"
+            app:enterAnim="@anim/enter_zoom_in"
+            app:exitAnim="@anim/exit_zoom_out"
+            app:popEnterAnim="@anim/enter_zoom_in"
+            app:popExitAnim="@anim/exit_zoom_out" />
+    </fragment>
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.ndmq.moneynote.presentation.setting.SettingFragment"

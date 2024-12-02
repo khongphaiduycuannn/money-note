@@ -19,6 +19,7 @@ import com.ndmq.moneynote.utils.getFirstDayOfMonth
 import com.ndmq.moneynote.utils.getNextMonth
 import com.ndmq.moneynote.utils.getPreviousMonth
 import com.ndmq.moneynote.utils.monthYearFormattedDate
+import com.ndmq.moneynote.utils.navigateTo
 import dagger.hilt.android.AndroidEntryPoint
 import java.time.YearMonth
 
@@ -64,6 +65,10 @@ class ReportFragment : Fragment() {
 
         selectTimeDialog.onConfirmButtonClick = { month, year ->
             viewModel.currentMonth.value = YearMonth.of(year, month)
+        }
+
+        binding.ivSearch.setOnClickListener {
+            navigateTo(Screen.SEARCH, R.id.action_reportFragment_to_searchFragment)
         }
 
         binding.btnNextDay.setOnClickListener {
