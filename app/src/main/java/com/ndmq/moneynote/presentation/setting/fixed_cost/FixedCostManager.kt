@@ -69,6 +69,7 @@ object FixedCostManager {
                     date,
                     fixedCost.title,
                     fixedCost.amount,
+                    fixedCost.category.id,
                     fixedCost.category,
                     fixedCost.id
                 ).apply {

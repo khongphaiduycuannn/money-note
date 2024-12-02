@@ -15,9 +15,6 @@ import com.ndmq.moneynote.R
 import com.ndmq.moneynote.data.model.FixedCost
 import com.ndmq.moneynote.data.model.FixedCost.Companion.BEFORE_DATE
 import com.ndmq.moneynote.data.model.FixedCost.Companion.DO_NO_THING
-import com.ndmq.moneynote.data.source.in_memory.categories
-import com.ndmq.moneynote.data.source.in_memory.defaultExpenseCategory
-import com.ndmq.moneynote.data.source.in_memory.defaultIncomeCategory
 import com.ndmq.moneynote.data.source.in_memory.frequencies
 import com.ndmq.moneynote.databinding.FragmentFixedCostBinding
 import com.ndmq.moneynote.presentation.MainActivity
@@ -56,7 +53,7 @@ class FixedCostFragment : Fragment() {
     }
 
     private fun initData() {
-        viewModel.categories = categories
+        viewModel.fetchData()
     }
 
     override fun onCreateView(
@@ -94,6 +91,7 @@ class FixedCostFragment : Fragment() {
 
     private fun observeData() {
         observeNotify()
+        observeCategory()
         observeCategoryType()
         observeSelectedCategory()
         observeSelectedFrequency()
@@ -145,14 +143,11 @@ class FixedCostFragment : Fragment() {
     private fun onIncomeExpenseButtonClick() {
         binding.btnExpense.setOnClickListener {
             viewModel.categoryType.value = 1
-            viewModel.selectedCategory.value = defaultExpenseCategory
         }
 
         binding.btnIncome.setOnClickListener {
             viewModel.categoryType.value = 2
-            viewModel.selectedCategory.value = defaultIncomeCategory
         }
-
     }
 
     private fun onStartDateButtonClick() {
@@ -303,6 +298,19 @@ class FixedCostFragment : Fragment() {
         }
     }
 
+    private fun observeCategory() {
+        viewModel.categories.observe(viewLifecycleOwner) { categories ->
+            if (categories.isNullOrEmpty()) return@observe
+
+            val categoryType = viewModel.categoryType.value ?: 1
+            val filteredCategories = categories.filter { it.categoryType == categoryType }
+            if (filteredCategories.size > 1) {
+                viewModel.selectedCategory.value = filteredCategories.first()
+            }
+            selectCategoryPopupWindow.setDataList(categories.filter { it.categoryType == categoryType })
+        }
+    }
+
     private fun observeCategoryType() {
         viewModel.categoryType.observe(viewLifecycleOwner) { categoryType ->
             when (categoryType) {
@@ -330,8 +338,7 @@ class FixedCostFragment : Fragment() {
                     binding.vExpense.setBackgroundResource(R.color.transparent)
                 }
             }
-
-            selectCategoryPopupWindow.setDataList(viewModel.categories.filter { it.categoryType == categoryType })
+            viewModel.categories.value = viewModel.categories.value
         }
     }
 

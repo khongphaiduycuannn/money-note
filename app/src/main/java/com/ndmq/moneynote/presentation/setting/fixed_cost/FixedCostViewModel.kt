@@ -28,7 +28,7 @@ class FixedCostViewModel @Inject constructor(
 
     var id: Long? = null
 
-    var categories = listOf<Category>()
+    var categories = MutableLiveData<List<Category>>(listOf())
 
     /*
     * 1: Expense
@@ -45,6 +45,17 @@ class FixedCostViewModel @Inject constructor(
     val frequency = MutableLiveData(defaultFrequency)
 
     val onSaturdayOrSunday = MutableLiveData(DO_NO_THING)
+
+    fun fetchData() {
+        executeTask(
+            request = {
+                appRepository.getCategories()
+            },
+            onSuccess = {
+                categories.value = it
+            }
+        )
+    }
 
     fun saveFixedCode(title: String?, amount: String?, doOnComplete: () -> Unit) {
         val startDate = startDate.value ?: Date()
@@ -132,6 +143,7 @@ class FixedCostViewModel @Inject constructor(
                     fixedCost.startDate,
                     fixedCost.title,
                     fixedCost.amount,
+                    fixedCost.category.id,
                     fixedCost.category
                 )
                 notes.add(note)
