@@ -19,8 +19,10 @@ import com.ndmq.moneynote.utils.getFirstDayOfMonth
 import com.ndmq.moneynote.utils.getNextMonth
 import com.ndmq.moneynote.utils.getPreviousMonth
 import com.ndmq.moneynote.utils.monthYearFormattedDate
+import dagger.hilt.android.AndroidEntryPoint
 import java.time.YearMonth
 
+@AndroidEntryPoint
 class ReportFragment : Fragment() {
 
     private val binding by lazy { FragmentReportBinding.inflate(layoutInflater) }

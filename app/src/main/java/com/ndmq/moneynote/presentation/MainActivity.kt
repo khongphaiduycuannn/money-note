@@ -7,9 +7,12 @@ import androidx.navigation.findNavController
 import com.ndmq.moneynote.R
 import com.ndmq.moneynote.base.BaseActivity
 import com.ndmq.moneynote.databinding.ActivityMainBinding
+import com.ndmq.moneynote.presentation.setting.fixed_cost.FixedCostManager
 import com.ndmq.moneynote.utils.constant.Screen
 import com.ndmq.moneynote.utils.extension.getColorFromResource
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : BaseActivity() {
 
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
@@ -40,6 +43,10 @@ class MainActivity : BaseActivity() {
 
         binding.btnReport.setOnClickListener {
             navigateTo(Screen.REPORT, R.id.reportFragment)
+        }
+
+        binding.btnSetting.setOnClickListener {
+            navigateTo(Screen.SETTING, R.id.settingFragment)
         }
     }
 
@@ -84,6 +91,7 @@ class MainActivity : BaseActivity() {
 
                 else -> {
                     resetBottomBarIcon()
+                    binding.llBottomNavBar.visibility = View.GONE
                 }
             }
         }

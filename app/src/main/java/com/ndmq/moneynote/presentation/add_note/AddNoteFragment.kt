@@ -2,7 +2,6 @@ package com.ndmq.moneynote.presentation.add_note
 
 import android.app.DatePickerDialog
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,17 +10,18 @@ import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.ndmq.moneynote.R
-import com.ndmq.moneynote.data.source.InMemoryDataSource
+import com.ndmq.moneynote.data.source.in_memory.categories
+import com.ndmq.moneynote.data.source.in_memory.defaultExpenseCategory
+import com.ndmq.moneynote.data.source.in_memory.defaultIncomeCategory
 import com.ndmq.moneynote.databinding.FragmentAddNoteBinding
 import com.ndmq.moneynote.presentation.MainActivity
-import com.ndmq.moneynote.utils.categories
 import com.ndmq.moneynote.utils.constant.Screen
-import com.ndmq.moneynote.utils.defaultExpenseCategory
-import com.ndmq.moneynote.utils.defaultIncomeCategory
 import com.ndmq.moneynote.utils.fullFormattedDate
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.Calendar
 import java.util.Date
 
+@AndroidEntryPoint
 class AddNoteFragment : Fragment() {
 
     private val binding by lazy { FragmentAddNoteBinding.inflate(layoutInflater) }
@@ -95,7 +95,6 @@ class AddNoteFragment : Fragment() {
 
         binding.tvSubmit.setOnClickListener {
             viewModel.saveNote(binding.edtNote.text.toString(), binding.edtExpense.text.toString())
-            Log.d("TAG", "${InMemoryDataSource.getNotes()}")
         }
 
         binding.ivSaveNote.setOnClickListener {

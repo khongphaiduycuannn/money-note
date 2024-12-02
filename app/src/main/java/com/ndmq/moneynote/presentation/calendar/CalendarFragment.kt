@@ -26,11 +26,13 @@ import com.ndmq.moneynote.utils.extension.scrollToNextMonth
 import com.ndmq.moneynote.utils.extension.scrollToPrevMonth
 import com.ndmq.moneynote.utils.getFirstDayOfMonth
 import com.ndmq.moneynote.utils.monthYearFormattedDate
+import dagger.hilt.android.AndroidEntryPoint
 import java.time.YearMonth
 import java.time.format.TextStyle
 import java.util.Date
 import java.util.Locale
 
+@AndroidEntryPoint
 class CalendarFragment : Fragment() {
 
     private val binding by lazy { FragmentCalendarBinding.inflate(layoutInflater) }

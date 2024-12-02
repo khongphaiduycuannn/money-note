@@ -44,9 +44,13 @@ class DayBinder(
                 llDateItem.setBackgroundResource(R.drawable.bg_item_calendar_date_selected_date)
             }
 
-            noteData[getStartOfDate(asDate(data.date))]?.let {
-                tvExpense.text = it.first.toString()
-                tvIncome.text = it.second.toString()
+            val dateData = noteData[getStartOfDate(asDate(data.date))]
+            if (dateData == null) {
+                tvExpense.text = ""
+                tvIncome.text = ""
+            } else {
+                tvExpense.text = dateData.first.toString()
+                tvIncome.text = dateData.second.toString()
             }
 
             llDateItem.setOnClickListener {

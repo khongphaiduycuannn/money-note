@@ -2,14 +2,23 @@ package com.ndmq.moneynote.presentation.add_note
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.ndmq.moneynote.base.BaseViewModel
 import com.ndmq.moneynote.data.model.Category
 import com.ndmq.moneynote.data.model.Note
-import com.ndmq.moneynote.data.source.InMemoryDataSource
-import com.ndmq.moneynote.utils.defaultExpenseCategory
+import com.ndmq.moneynote.data.repository.AppRepository
+import com.ndmq.moneynote.data.repository.DataState
+import com.ndmq.moneynote.data.source.in_memory.defaultExpenseCategory
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import java.util.Calendar
 import java.util.Date
+import javax.inject.Inject
 
-class AddNoteViewModel : ViewModel() {
+@HiltViewModel
+class AddNoteViewModel @Inject constructor(
+    private val appRepository: AppRepository
+) : BaseViewModel() {
 
     val notify = MutableLiveData<String>(null)
 
@@ -42,9 +51,18 @@ class AddNoteViewModel : ViewModel() {
             return
         }
 
-        val note = Note(createdDate, content, amount.toDouble(), category)
-        InMemoryDataSource.addNote(note)
-        notify.value = "Save successfully!"
+        executeTask(
+            request = {
+                val note = Note(createdDate, content, amount.toDouble(), category)
+                appRepository.addNote(note)
+            },
+            onSuccess = {
+                notify.value = "Save successfully!"
+            },
+            onError = {
+                notify.value = "Save failed!"
+            }
+        )
     }
 
     private fun moveToDate(dis: Int) {
