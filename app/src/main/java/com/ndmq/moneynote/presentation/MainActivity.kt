@@ -10,6 +10,7 @@ import com.ndmq.moneynote.databinding.ActivityMainBinding
 import com.ndmq.moneynote.utils.constant.Screen
 import com.ndmq.moneynote.utils.extension.getColorFromResource
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.Locale
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity() {
@@ -22,10 +23,20 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        initLanguage()
         initData()
         initView()
         handleEvent()
         observeData()
+    }
+
+    private fun initLanguage() {
+        resources.apply {
+            val locale = Locale("en", "US")
+            Locale.setDefault(locale)
+            configuration.setLocale(locale)
+            updateConfiguration(configuration, resources.displayMetrics)
+        }
     }
 
     private fun initData() {
