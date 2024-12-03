@@ -14,6 +14,7 @@ fun Fragment.navigateTo(
     try {
         findNavController().navigate(id, bundle)
         doOnNavigated(desScreen)
-    } catch (_: Exception) {
+    } catch (e: Exception) {
+        e.printStackTrace()
     }
 }

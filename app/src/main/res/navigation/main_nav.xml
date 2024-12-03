@@ -124,5 +124,22 @@
         android:id="@+id/editNoteFragment"
         android:name="com.ndmq.moneynote.presentation.edit_note.EditNoteFragment"
         android:label="fragment_edit_note"
-        tools:layout="@layout/fragment_edit_note" />
+        tools:layout="@layout/fragment_edit_note" >
+        <action
+            android:id="@+id/action_editNoteFragment_to_categoriesFragment"
+            app:destination="@id/categoriesFragment"
+            app:enterAnim="@anim/enter_zoom_in"
+            app:exitAnim="@anim/exit_zoom_out"
+            app:popEnterAnim="@anim/enter_zoom_in"
+            app:popExitAnim="@anim/exit_zoom_out" />
+        <action
+            android:id="@+id/action_editNoteFragment_self"
+            app:destination="@id/editNoteFragment"
+            app:enterAnim="@anim/enter_zoom_in"
+            app:exitAnim="@anim/exit_zoom_out"
+            app:popEnterAnim="@anim/enter_zoom_in"
+            app:popExitAnim="@anim/exit_zoom_out"
+            app:popUpTo="@id/editNoteFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
