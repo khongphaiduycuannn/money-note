@@ -144,6 +144,7 @@ class MainActivity : BaseActivity() {
     private fun navigateTo(desScreen: Screen, id: Int) {
         try {
             if (desScreen != viewModel.currentScreen.value) {
+                findNavController(binding.navHostFragment.id).navigateUp()
                 findNavController(binding.navHostFragment.id).navigate(id)
             }
         } catch (_: Exception) {
