@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat.getColor
+import androidx.core.os.bundleOf
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -18,6 +19,7 @@ import com.ndmq.moneynote.presentation.MainActivity
 import com.ndmq.moneynote.presentation.calendar.DetailDateNotesAdapter
 import com.ndmq.moneynote.utils.constant.Screen
 import com.ndmq.moneynote.utils.constant.formatNumberWithDots
+import com.ndmq.moneynote.utils.navigateTo
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -81,6 +83,14 @@ class SearchFragment : Fragment() {
 
         binding.ivBack.setOnClickListener {
             findNavController().navigateUp()
+        }
+
+        noteAdapter.setOnNoteClick { note ->
+            navigateTo(
+                Screen.EDIT_NOTE,
+                R.id.action_searchFragment_to_editNoteFragment,
+                bundleOf("NOTE" to note)
+            )
         }
     }
 

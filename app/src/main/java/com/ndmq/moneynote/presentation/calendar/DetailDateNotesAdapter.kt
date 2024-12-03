@@ -1,6 +1,7 @@
 package com.ndmq.moneynote.presentation.calendar
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat.getColor
 import androidx.recyclerview.widget.RecyclerView.Adapter
@@ -10,6 +11,7 @@ import com.ndmq.moneynote.data.model.Note
 import com.ndmq.moneynote.data.model.dto.DateNotes
 import com.ndmq.moneynote.databinding.ItemCategoryDateDetailBinding
 import com.ndmq.moneynote.databinding.ItemCategoryDateDetailHeaderBinding
+import com.ndmq.moneynote.utils.constant.AppConstant.HIDDEN_KEY
 import com.ndmq.moneynote.utils.constant.formatNumberWithDots
 import com.ndmq.moneynote.utils.dateMonthFormattedDate
 

@@ -65,4 +65,7 @@
     <string name="delete_successfully">Delete successfully!</string>
     <string name="title_mustn_t_be_blank">Title mustn\'t be blank!</string>
     <string name="save_successfully">Save successfully!</string>
+    <string name="copy">Copy</string>
+    <string name="override">Override</string>
+    <string name="clone_note">Clone note</string>
 </resources>

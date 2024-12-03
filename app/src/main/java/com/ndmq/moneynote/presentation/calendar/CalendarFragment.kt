@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat.getColor
+import androidx.core.os.bundleOf
 import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -100,6 +101,14 @@ class CalendarFragment : Fragment() {
 
         binding.btnPrevDay.setOnClickListener {
             binding.calendar.scrollToPrevMonth()
+        }
+
+        noteAdapter.setOnNoteClick { note ->
+            navigateTo(
+                Screen.EDIT_NOTE,
+                R.id.action_calendarFragment_to_editNoteFragment,
+                bundleOf("NOTE" to note)
+            )
         }
     }
 
