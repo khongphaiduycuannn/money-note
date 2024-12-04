@@ -5,6 +5,7 @@
         <item name="colorControlActivated">@color/primaryColor</item>
         <item name="android:textColorPrimary">@color/defaultTextColor</item>
         <item name="android:textColorSecondary">@color/defaultIconColor</item>
+        <item name="android:fontFamily">@font/lato</item>
     </style>
 
     <style name="Theme.MoneyNote" parent="Base.Theme.MoneyNote" />

@@ -28,7 +28,8 @@
                 android:layout_weight="1"
                 android:text="@string/report"
                 android:textColor="@color/highlightTextColor"
-                android:textSize="@dimen/_15sdp" />
+                android:textSize="@dimen/_16sdp"
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/ivSearch"

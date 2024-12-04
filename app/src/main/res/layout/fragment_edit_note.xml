@@ -21,8 +21,8 @@
             android:layout_width="@dimen/_32sdp"
             android:layout_height="@dimen/_32sdp"
             android:contentDescription="@null"
-            android:padding="@dimen/_6sdp"
-            android:src="@drawable/ic_hehe"
+            android:padding="@dimen/_8sdp"
+            android:src="@drawable/ic_back"
             app:tint="@color/highlightTextColor" />
 
         <TextView
@@ -33,7 +33,8 @@
             android:layout_weight="1"
             android:text="@string/edit"
             android:textColor="@color/highlightTextColor"
-            android:textSize="@dimen/_15sdp" />
+            android:textSize="@dimen/_16sdp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/ivSaveNote"
