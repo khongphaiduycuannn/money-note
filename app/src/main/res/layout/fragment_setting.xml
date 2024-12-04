@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/highlightBackgroundColor"
+    android:background="@color/backgroundColor"
     android:orientation="vertical"
     tools:context=".presentation.setting.SettingFragment">
 
@@ -22,66 +22,243 @@
             android:layout_weight="1"
             android:text="@string/setting"
             android:textColor="@color/highlightTextColor"
-            android:textSize="@dimen/_15sdp" />
+            android:textSize="@dimen/_16sdp"
+            android:textStyle="bold" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/btnFixedCost"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_20sdp"
-        android:background="@drawable/bg_btn_setting_item"
-        android:clickable="true"
-        android:focusable="true"
-        android:paddingHorizontal="@dimen/_5sdp"
-        android:paddingVertical="@dimen/_7sdp">
+        app:cardBackgroundColor="@color/backgroundSettingItemDialog"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardElevation="@dimen/_4sdp">
 
-        <ImageView
-            android:layout_width="@dimen/_23sdp"
-            android:layout_height="@dimen/_23sdp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_hehe"
-            app:tint="@color/primaryColor" />
-
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="@dimen/_2sdp"
-            android:text="@string/fixed_cost_and_periodic_income_settings"
-            android:textColor="@color/defaultTextColor"
-            android:textSize="@dimen/_12sdp" />
-    </LinearLayout>
+            android:orientation="vertical"
+            android:paddingVertical="@dimen/_10sdp">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/outlineColor" />
+            <LinearLayout
+                android:id="@+id/btnFixedCost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_btn_setting_item"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="@dimen/_8sdp"
+                android:paddingVertical="@dimen/_7sdp">
 
-    <LinearLayout
-        android:id="@+id/btnCategory"
+                <ImageView
+                    android:layout_width="@dimen/_23sdp"
+                    android:layout_height="@dimen/_23sdp"
+                    android:contentDescription="@null"
+                    android:padding="@dimen/_3sdp"
+                    android:src="@drawable/ic_fixed_cost"
+                    app:tint="@color/primaryColor" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_weight="1"
+                    android:text="@string/fixed_cost_and_periodic_income_settings"
+                    android:textColor="@color/defaultTextColor"
+                    android:textSize="@dimen/_12sdp" />
+
+                <ImageView
+                    android:layout_width="@dimen/_23sdp"
+                    android:layout_height="@dimen/_23sdp"
+                    android:contentDescription="@null"
+                    android:padding="@dimen/_7sdp"
+                    android:src="@drawable/ic_right_arrow"
+                    app:tint="@color/primaryColor" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+
+            <LinearLayout
+                android:id="@+id/btnCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_btn_setting_item"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="@dimen/_8sdp"
+                android:paddingVertical="@dimen/_7sdp">
+
+                <ImageView
+                    android:layout_width="@dimen/_23sdp"
+                    android:layout_height="@dimen/_23sdp"
+                    android:contentDescription="@null"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_edit_category"
+                    app:tint="@color/primaryColor" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_weight="1"
+                    android:text="@string/edit_categories"
+                    android:textColor="@color/defaultTextColor"
+                    android:textSize="@dimen/_12sdp" />
+
+                <ImageView
+                    android:layout_width="@dimen/_23sdp"
+                    android:layout_height="@dimen/_23sdp"
+                    android:contentDescription="@null"
+                    android:padding="@dimen/_7sdp"
+                    android:src="@drawable/ic_right_arrow"
+                    app:tint="@color/primaryColor" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_btn_setting_item"
-        android:clickable="true"
-        android:focusable="true"
-        android:paddingHorizontal="@dimen/_5sdp"
-        android:paddingVertical="@dimen/_7sdp">
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        app:cardBackgroundColor="@color/backgroundSettingItemDialog"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardElevation="@dimen/_4sdp">
 
-        <ImageView
-            android:layout_width="@dimen/_23sdp"
-            android:layout_height="@dimen/_23sdp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_hehe"
-            app:tint="@color/primaryColor" />
-
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="@dimen/_2sdp"
-            android:text="@string/edit_categories"
-            android:textColor="@color/defaultTextColor"
-            android:textSize="@dimen/_12sdp" />
-    </LinearLayout>
+            android:orientation="vertical"
+            android:paddingVertical="@dimen/_10sdp">
+
+            <LinearLayout
+                android:id="@+id/btnSetting1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_btn_setting_item"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="@dimen/_8sdp"
+                android:paddingVertical="@dimen/_7sdp">
+
+                <ImageView
+                    android:layout_width="@dimen/_23sdp"
+                    android:layout_height="@dimen/_23sdp"
+                    android:contentDescription="@null"
+                    android:padding="@dimen/_1sdp"
+                    android:src="@drawable/ic_policy"
+                    app:tint="@color/primaryColor" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:text="@string/privacy_policy"
+                    android:textColor="@color/defaultTextColor"
+                    android:textSize="@dimen/_12sdp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+
+            <LinearLayout
+                android:id="@+id/btnSetting2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_btn_setting_item"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="@dimen/_8sdp"
+                android:paddingVertical="@dimen/_7sdp">
+
+                <ImageView
+                    android:layout_width="@dimen/_23sdp"
+                    android:layout_height="@dimen/_23sdp"
+                    android:contentDescription="@null"
+                    android:padding="@dimen/_1sdp"
+                    android:src="@drawable/ic_send_feedback"
+                    app:tint="@color/primaryColor" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:text="@string/rate_the_app"
+                    android:textColor="@color/defaultTextColor"
+                    android:textSize="@dimen/_12sdp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+
+            <LinearLayout
+                android:id="@+id/btnSetting3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_btn_setting_item"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="@dimen/_8sdp"
+                android:paddingVertical="@dimen/_7sdp">
+
+                <ImageView
+                    android:layout_width="@dimen/_23sdp"
+                    android:layout_height="@dimen/_23sdp"
+                    android:contentDescription="@null"
+                    android:padding="@dimen/_1sdp"
+                    android:src="@drawable/ic_rate_app"
+                    app:tint="@color/primaryColor" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:text="@string/send_feedback"
+                    android:textColor="@color/defaultTextColor"
+                    android:textSize="@dimen/_12sdp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+
+            <LinearLayout
+                android:id="@+id/btnSetting4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_btn_setting_item"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="@dimen/_8sdp"
+                android:paddingVertical="@dimen/_7sdp">
+
+                <ImageView
+                    android:layout_width="@dimen/_23sdp"
+                    android:layout_height="@dimen/_23sdp"
+                    android:contentDescription="@null"
+                    android:padding="@dimen/_1sdp"
+                    android:src="@drawable/ic_more_app"
+                    app:tint="@color/primaryColor" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:text="@string/more_app"
+                    android:textColor="@color/defaultTextColor"
+                    android:textSize="@dimen/_12sdp" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </LinearLayout>

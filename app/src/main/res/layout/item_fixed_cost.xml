@@ -68,10 +68,10 @@
             tools:text="120.000$" />
 
         <ImageView
-            android:layout_width="@dimen/_11sdp"
-            android:layout_height="@dimen/_11sdp"
+            android:layout_width="@dimen/_10sdp"
+            android:layout_height="@dimen/_10sdp"
             android:layout_marginStart="@dimen/_6sdp"
             android:contentDescription="@null"
-            android:src="@drawable/ic_hehe" />
+            android:src="@drawable/ic_right_arrow" />
     </LinearLayout>
 </LinearLayout>

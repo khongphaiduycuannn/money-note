@@ -136,7 +136,7 @@ class EditCategoryFragment : Fragment() {
 
     private fun initEditMode() {
         if (viewModel.id != null) {
-            binding.tvTitle.text = getString(R.string.edit_category)
+            binding.tvTitle.text = binding.edtName.text
             binding.ivDelete.visibility = View.VISIBLE
         }
     }

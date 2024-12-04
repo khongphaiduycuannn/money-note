@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.ndmq.moneynote.R
 import com.ndmq.moneynote.databinding.FragmentSettingBinding
@@ -39,6 +40,26 @@ class SettingFragment : Fragment() {
 
         binding.btnCategory.setOnClickListener {
             navigateTo(Screen.CATEGORIES, R.id.action_settingFragment_to_categoriesFragment)
+        }
+
+        binding.btnSetting1.setOnClickListener {
+            Toast.makeText(requireContext(), getString(R.string.coming_soon), Toast.LENGTH_LONG)
+                .show()
+        }
+
+        binding.btnSetting2.setOnClickListener {
+            Toast.makeText(requireContext(), getString(R.string.coming_soon), Toast.LENGTH_LONG)
+                .show()
+        }
+
+        binding.btnSetting3.setOnClickListener {
+            Toast.makeText(requireContext(), getString(R.string.coming_soon), Toast.LENGTH_LONG)
+                .show()
+        }
+
+        binding.btnSetting4.setOnClickListener {
+            Toast.makeText(requireContext(), getString(R.string.coming_soon), Toast.LENGTH_LONG)
+                .show()
         }
     }
 

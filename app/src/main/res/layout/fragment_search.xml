@@ -22,7 +22,7 @@
             android:layout_height="@dimen/_32sdp"
             android:contentDescription="@null"
             android:padding="@dimen/_6sdp"
-            android:src="@drawable/ic_hehe"
+            android:src="@drawable/ic_back"
             app:tint="@color/highlightTextColor" />
 
         <TextView
@@ -31,7 +31,8 @@
             android:layout_marginEnd="@dimen/_2sdp"
             android:text="@string/search"
             android:textColor="@color/highlightTextColor"
-            android:textSize="@dimen/_15sdp" />
+            android:textSize="@dimen/_16sdp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvRange"
@@ -40,7 +41,8 @@
             android:layout_weight="1"
             android:text="@string/_all_period_"
             android:textColor="@color/highlightTextColor"
-            android:textSize="@dimen/_15sdp" />
+            android:textSize="@dimen/_16sdp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/ivCalendar"

@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">MoneyNote</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="input">Input</string>
     <string name="calendar">Calendar</string>
     <string name="report">Report</string>
@@ -68,4 +66,9 @@
     <string name="copy">Copy</string>
     <string name="override">Override</string>
     <string name="clone_note">Clone note</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="rate_the_app">Rate the app</string>
+    <string name="send_feedback">Send feedback</string>
+    <string name="more_app">More app</string>
+    <string name="coming_soon">Coming soon!</string>
 </resources>
